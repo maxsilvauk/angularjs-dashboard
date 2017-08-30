@@ -41,6 +41,6 @@
   "scripts": {
     "prestart": "npm install",
     "postinstall": "bower install",
-    "start": "grunt build && grunt serve"
+    "start": "grunt"
   }
 }
