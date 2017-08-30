@@ -165,11 +165,6 @@ module.exports = function (grunt) {
         }
       }
     },
-    //Imagemin has issues on Windows.  
-    //To enable imagemin:
-    // - "npm install grunt-contrib-imagemin"
-    // - Comment in this section
-    //- Add the "imagemin" task after the "htmlmin" task in the build task alias
     imagemin: {
       dynamic: {
           files: [{
@@ -213,7 +208,7 @@ module.exports = function (grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.registerTask('default', ['imagemin']);
+  grunt.registerTask('default', ['build','serve']);
   grunt.registerTask('build',['jshint','clean:before','less','dom_munger','ngtemplates','cssmin','concat','ngAnnotate','uglify','copy','htmlmin', 'imagemin', 'svgmin', 'clean:after']);
   grunt.registerTask('serve', ['dom_munger:read','jshint','connect', 'watch']);
   grunt.registerTask('test',['dom_munger:read','karma:all_tests']);
