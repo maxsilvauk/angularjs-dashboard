@@ -25,5 +25,4 @@ paxportApp.run(function($rootScope) {
             this.$apply(fn);
         }
     };
-
 });

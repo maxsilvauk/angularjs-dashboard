@@ -1,3 +1,163 @@
-/* Component LESS */
-/* Add Component LESS Above */
+/* Common */
 
+body {
+	margin:0;
+	padding:0;
+	border:0;
+	width:100%;
+	background:#F6F6F6;
+	min-width:600px;
+	font-size:16px;
+}
+
+a {
+	color:#369;
+}
+
+a:hover {
+	color:#fff;
+	background:#369;
+	text-decoration:none;
+}
+
+h1, h2, h3 {
+	margin:.8em 0 .2em 0;
+	padding:0;
+	color:#8D8D8D;
+}
+
+p {
+	margin:.4em 0 .8em 0;
+	padding:0;
+	color:8D8D8D;
+}
+
+/* Header styles */
+#header {
+	clear:both;
+	float:left;
+	width:100%;
+}
+
+#header {
+	border-bottom:1px solid #000;
+}
+
+#header p,
+#header h1,
+#header h2 {
+	padding:.4em 15px 0 15px;
+	margin:0;
+}
+
+#header ul {
+	clear:left;
+	float:left;
+	width:100%;
+	list-style:none;
+	margin:10px 0 0 0;
+	padding:0;
+}
+
+#header ul li {
+	display:inline;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+#header ul li a {
+	display:block;
+	float:left;
+	margin:0 0 0 1px;
+	padding:3px 10px;
+	text-align:center;
+	background:#eee;
+	color:#000;
+	text-decoration:none;
+	position:relative;
+	left:15px;
+	line-height:1.3em;
+}
+
+#header ul li a:hover {
+	background:#369;
+	color:#fff;
+}
+
+#header ul li a.active,
+#header ul li a.active:hover {
+	color:#fff;
+	background:#000;
+	font-weight:bold;
+}
+
+#header ul li a span {
+	display:block;
+}
+
+
+/* Container styles */
+
+.container {
+	position:relative;
+	clear:both;
+	float:left;
+	width:100%;	
+	overflow:hidden;
+	background:#fff;
+}
+
+/* common column settings */
+.colright,
+.colmid,
+.colleft {
+	float:left;
+	width:100%;
+	position:relative;
+}
+.col1,
+.col2 {
+	float:left;
+	position:relative;
+	overflow:hidden;
+}
+
+.leftmenu .colleft {
+	right:80%;
+	background:#CE2443;
+}
+
+.leftmenu .col1 {
+	width:71%;
+	left:102%;
+}
+
+#logo {
+	height: 100px;
+    background-color: #7B1E2D;
+}
+
+nav {
+	left: 8%;
+    padding-top: 2em;
+
+	li {
+		color:white;
+		padding:25px;
+		list-style-type: none;
+		font-size: 20px;
+		font-weight: 300;
+		letter-spacing: 1px;
+
+		i {
+			font-size: 25px !important;
+			margin-right:15px;
+			width: 23px;
+		}
+	}
+}
+
+#footer {
+	clear:both;
+}
