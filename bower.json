@@ -1,0 +1,25 @@
+{
+  "name": "paxportal",
+  "version": "1.0.0",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery":"*",
+    "lodash": "*",
+    "bootstrap": "*",
+    "angular": "*",
+    "angular-route": "*",
+    "angular-animate": "*",
+    "angular-resource": "*",
+    "angular-cookies": "*",
+    "angular-mocks": "*",
+    "angular-bootstrap": "*",
+    "moment": "*",
+    "less.js": "*",
+    "font-awesome": "*"
+  }
+}
