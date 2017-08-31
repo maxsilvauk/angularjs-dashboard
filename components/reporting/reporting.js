@@ -9,7 +9,7 @@ reporting.config(function($routeProvider) {
 
 	$routeProvider.when('/reporting', {
         templateUrl: 'components/reporting/reporting-partial/reporting-partial.html',
-        controller: 'reportingController'
+        controller: 'reportingCtrl'
     });
 });
 
@@ -34,7 +34,7 @@ reporting.factory('Data', function($http, $q) {
  * @param $scope
  * @param Data
  */
-reporting.controller('reportingController', function($scope, Data) {
+reporting.controller('reportingCtrl', function($scope, Data) {
 	Data.allPosts().then(function(data) {
 		$scope.posts = data[0];
 		$('.data').append('<pre>'+JSON.stringify($scope.posts, null,"    ")+'</pre>');
