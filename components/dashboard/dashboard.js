@@ -39,6 +39,6 @@ dashboard.controller('dashboardCtrl', function($http, $q, $scope, Data) {
 	$q.all([
         $http.get('/json/kpis.json')
     ]).then(function(data) {
-		$scope.kpis = data[0].data;
+		$scope.kpis = data[0].data.kpis;
 	});
 });
