@@ -36,7 +36,7 @@ bookings.factory('Data', function($http, $q) {
 
 bookings.controller('bookingsKPICtrl', function($scope, Data) {
     Data.kpi().then(function(data) {
-        $scope.kpis = data[0].data;
+        $scope.kpis = data[0].data.stats;
     });
 });
 /**

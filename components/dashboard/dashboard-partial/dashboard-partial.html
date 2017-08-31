@@ -1,4 +1,7 @@
 <h1>Dashboard Partial</h1>
-<div ng-controller="dashboardCtrl" ng-repeat="view in kpis">
-	<ng-include src="view"></ng-include>
+<div ng-controller="dashboardCtrl">
+    <div ng-repeat="view in kpis">
+        Length: {{view.length}}
+        <ng-include src="view[$index].url"></ng-include>
+    </div>
 </div>

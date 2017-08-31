@@ -1,5 +1,9 @@
 {
-		"kpis": [
-			"components/reporting/bookings/bookings-kpi.html"
-		]
+    "kpis": [
+        {
+            "title": "bookings",
+            "url": "http://localhost:8000/components/reporting/bookings/bookings-kpi.html"
+        }
+        
+    ]        
 }
