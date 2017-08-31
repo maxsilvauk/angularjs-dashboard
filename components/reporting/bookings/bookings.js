@@ -9,7 +9,7 @@ bookings.config(function($routeProvider) {
 
 	$routeProvider.when('/bookings', {
         templateUrl: 'components/reporting/bookings/bookings-partial/bookings-partial.html',
-        controller: 'bookingsController'
+        controller: 'bookingsCtrl'
     });
 });
 
@@ -44,7 +44,7 @@ bookings.controller('bookingsKPICtrl', function($scope, Data) {
  * @param $scope
  * @param Data
  */
-bookings.controller('bookingsController', function($scope, Data) {
+bookings.controller('bookingsCtrl', function($scope, Data) {
 	Data.allPosts().then(function(data) {
 		$scope.posts = data[0];
 		$('.data').append('<pre>'+JSON.stringify($scope.posts, null,"    ")+'</pre>');
