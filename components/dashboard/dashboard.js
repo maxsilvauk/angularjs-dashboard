@@ -1,8 +1,8 @@
-// Define bookings module.
+// Define Dashboard module.
 var dashboard = angular.module('dashboard', ['ngRoute']);
 
 /**
- * Bookings config
+ * Dashboard config
  * @param $routeProvider
  */
 dashboard.config(function($routeProvider) {
@@ -13,7 +13,7 @@ dashboard.config(function($routeProvider) {
 });
 
 /**
- * Bookings factory
+ * Dashboard factory
  * @param $http
  * @param $q
  */
@@ -29,7 +29,9 @@ dashboard.factory('Data', function($http, $q) {
 });
 
 /**
- * Bookings controller.
+ * Dashboard controller.
+ * @param $http
+ * @param $q
  * @param $scope
  * @param Data
  */
