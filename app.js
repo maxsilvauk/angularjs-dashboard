@@ -4,6 +4,10 @@ var paxportApp = angular.module('paxportal', ['ngRoute','dashboard', 'reporting'
 // PaxportApp Route.
 paxportApp.config(function($routeProvider) {
     $routeProvider
+    .when('/dashboard', {
+        templateUrl: 'components/dashboard/dashboard-partial/dashboard-partial.html',
+        controller: 'dashboardCtrl'
+    })
     .otherwise({
         redirect: '/'
     });
