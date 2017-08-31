@@ -26,9 +26,19 @@ bookings.factory('Data', function($http, $q) {
                 $http.get(url + '/posts')
             ]);
         },
+        kpi: function() {
+            return $q.all([
+                $http.get('http://localhost:8000/json/bookings.json')
+            ]);
+        }
     };
 });
 
+bookings.controller('bookingsKPICtrl', function($scope, Data) {
+    Data.kpi().then(function(data) {
+        $scope.kpis = data[0].data;
+    });
+});
 /**
  * Bookings controller.
  * @param $scope

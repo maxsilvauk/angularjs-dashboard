@@ -6,3 +6,8 @@ angular.module('shared').config(function($routeProvider) {
 
 });
 
+angular.module('shared').controller('navCtrl', function($scope, $location) {
+	$scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
+    };
+});

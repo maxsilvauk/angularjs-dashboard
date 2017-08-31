@@ -1,0 +1,6 @@
+{
+	"kpis": [
+		"components/jira/jira-partial/jira-partial.html",
+		"components/reporting/bookings/bookings-partial/bookings-partial.html"
+	]
+}

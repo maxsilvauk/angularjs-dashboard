@@ -1,0 +1,5 @@
+{
+		"kpis": [
+			"components/reporting/bookings/bookings-kpi.html"
+		]
+}

@@ -11,12 +11,13 @@ body {
 }
 
 a {
-	color:#369;
+	color:#7B1E2D;
+	outline:none;
 }
 
 a:hover {
 	color:#fff;
-	background:#369;
+	background:#7B1E2D;
 	text-decoration:none;
 }
 
@@ -29,7 +30,7 @@ h1, h2, h3 {
 p {
 	margin:.4em 0 .8em 0;
 	padding:0;
-	color:8D8D8D;
+	color:#8D8D8D;
 }
 
 /* Header styles */
@@ -107,6 +108,68 @@ p {
 	overflow:hidden;
 	background:#fff;
 }
+.site-nav {
+	position: fixed;
+    height: 100%;
+    background:#CE2443;
+    #logo {
+		padding: 30px;
+	    background-color: #7B1E2D;
+	}
+    ul {
+    	padding:0;
+    	margin:0;
+    	li {
+	    	list-style-type: none;
+	    	clear:both;
+	    	a {
+	    		display:block;
+	    		color:white;
+				padding:20px 0 20px 35px;
+				font-size: 16px;
+				font-weight: 300;
+				text-decoration: none;
+				&.active {
+					background:#B7263E;
+					border-left:6px solid #7B1E2D;
+					padding-left:29px;
+					&:after {
+						content:'';
+						float: right;
+    					margin-top: 3px;
+					  	width: 0; 
+					  	height: 0; 
+					  	border-top: 10px solid transparent;
+					  	border-bottom: 10px solid transparent; 
+					  	border-right:10px solid white; 
+					}
+				}
+				i {
+					font-size: 25px !important;
+					margin-right:15px;
+					width: 23px;
+					display: block;
+    				float: left;
+				}
+	    	}		
+		}
+    }
+    
+}
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+#site-content {
+	float:right;
+	#content {
+		padding:20px;
+		h1 {
+			padding-top:0;
+			margin-top:0;
+		}
+	}
+}
 
 /* common column settings */
 .colright,
@@ -116,46 +179,30 @@ p {
 	width:100%;
 	position:relative;
 }
-.col1,
-.col2 {
-	float:left;
-	position:relative;
-	overflow:hidden;
-}
+// .col1,
+// .col2 {
+// 	float:left;
+// 	position:relative;
+// 	overflow:hidden;
+// }
 
-.leftmenu .colleft {
-	right:80%;
-	background:#CE2443;
-}
+// .leftmenu .colleft {
+// 	right:80%;
+// 	background:#CE2443;
+// }
 
-.leftmenu .col1 {
-	width:71%;
-	left:102%;
-}
+// .leftmenu .col1 {
+// 	width:71%;
+// 	left:102%;
+// }
 
-#logo {
-	height: 100px;
-    background-color: #7B1E2D;
-}
+
 
 nav {
 	left: 8%;
     padding-top: 2em;
 
-	li {
-		color:white;
-		padding:25px;
-		list-style-type: none;
-		font-size: 20px;
-		font-weight: 300;
-		letter-spacing: 1px;
-
-		i {
-			font-size: 25px !important;
-			margin-right:15px;
-			width: 23px;
-		}
-	}
+	
 }
 
 #footer {

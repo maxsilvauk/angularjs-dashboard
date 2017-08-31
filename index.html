@@ -23,6 +23,8 @@
 
     <!-- Main App JS -->
     <script src="app.js"></script>
+
+    <script src="components/dashboard/dashboard.js"></script>
     <script src="components/reporting/reporting.js"></script>
     <script src="components/reporting/bookings/bookings.js"></script>
     <script src="components/reporting/supplier-status/supplier-status.js"></script>
@@ -31,23 +33,66 @@
     <!-- Add New Component JS Above -->
   </head>
   <body>
-    <div class="container leftmenu">
-      <div class="colleft">
-        <div ng-view class="col1"></div>
-        <div id="logo">Logo</div>
-        <nav class="col2">
-          <ul>
-            <li><i class="fa fa-home" aria-hidden="true"></i> Dashboard</li>
-            <li><i class="fa fa-search" aria-hidden="true"></i> Search</li>
-            <li><i class="fa fa-book" aria-hidden="true"></i> Bookings</li>
-            <li><i class="fa fa-plane" aria-hidden="true"></i> Supplier</li>
-            <li><i class="fa fa-cog" aria-hidden="true"></i> Config</li>
-            <li><i class="fa fa-bar-chart" aria-hidden="true"></i> Reports</li>
-            <li><i class="fa fa-wrench" aria-hidden="true"></i> Tools</li>
-            <li><i class="fa fa-tasks" aria-hidden="true"></i> Misc</li>
-          </ul>
-        </nav>
-      </div>
+    <div class="site-container no-gutter">
+        <div class="site-nav col-lg-2 col-md-3 col-sm-2 col-xs-1" ng-controller="navCtrl">
+            <!-- This doesn't seem to compile - how do we deal with image links once it is compiled? -->
+            <div id="logo"><img src="components/shared/images/logo.svg" /></div>
+            <ul>
+                <li>
+                    <a ng-class="{ active: isActive('/')}" href="/">
+                        <i class="fa fa-home" aria-hidden="true"></i> 
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa fa-search" aria-hidden="true"></i> 
+                        Search
+                    </a>
+                </li>
+                <li>
+                    <a ng-class="{ active: isActive('/bookings')}" href="#!bookings">
+                        <i class="fa fa-book" aria-hidden="true"></i> 
+                        Bookings
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa fa-plane" aria-hidden="true"></i> 
+                        Supplier
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa fa-cog" aria-hidden="true"></i> 
+                        Config
+                    </a>
+                </li>
+                <li>
+                    <a ng-class="{ active: isActive('/reporting')}" href="#!reporting">
+                        <i class="fa fa-bar-chart" aria-hidden="true"></i> 
+                        Reports
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa fa-wrench" aria-hidden="true"></i> 
+                        Tools
+                    </a>
+                </li>
+                <li>
+                    <a href="/">
+                        <i class="fa fa-tasks" aria-hidden="true"></i> 
+                        Misc
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="site-content" class="col-lg-10 col-md-9 col-sm-10 col-xs-11">
+            <div id="content" ng-view>
+
+            </div>
+        </div>
     </div>
   </body>
 </html>
