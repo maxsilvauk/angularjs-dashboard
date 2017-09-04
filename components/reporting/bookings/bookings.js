@@ -6,9 +6,8 @@ var bookings = angular.module('bookings', ['ngRoute']);
  * @param $routeProvider
  */
 bookings.config(function($routeProvider) {
-
 	$routeProvider.when('/bookings', {
-        templateUrl: 'components/reporting/bookings/bookings-partial/bookings-partial.html',
+        templateUrl: 'components/reporting/bookings/partials/bookings-main.html',
         controller: 'bookingsCtrl'
     });
 });
@@ -18,7 +17,7 @@ bookings.config(function($routeProvider) {
  * @param $http
  * @param $q
  */
-bookings.factory('Data', function($http, $q) {
+bookings.factory('bookingsData', function($http, $q) {
 	var url = 'https://jsonplaceholder.typicode.com';
     return {
         allPosts: function() {
@@ -26,27 +25,34 @@ bookings.factory('Data', function($http, $q) {
                 $http.get(url + '/posts')
             ]);
         },
-        kpi: function() {
+        getKpi: function() {
             return $q.all([
-                $http.get('http://localhost:8000/json/bookings.json')
+                $http.get('http://localhost:8000/json/number_of_bookings.json')
             ]);
         }
     };
 });
 
-bookings.controller('bookingsKPICtrl', function($scope, Data) {
-    Data.kpi().then(function(data) {
-        $scope.kpis = data[0].data.stats;
-    });
-});
 /**
- * Bookings controller.
+ * BookingsKpiCtrl Controller.
  * @param $scope
  * @param Data
  */
-bookings.controller('bookingsCtrl', function($scope, Data) {
-	Data.allPosts().then(function(data) {
+bookings.controller('bookingsKpiCtrl', function($scope, bookingsData) {
+    bookingsData.getKpi().then(function(data) {
+        var obj = data[0];
+        $scope.kpis = obj.data;
+    });
+});
+
+/**
+ * BookingsCtrl controller.
+ * @param $scope
+ * @param Data
+ */
+bookings.controller('bookingsCtrl', function($scope, bookingsData) {
+	bookingsData.allPosts().then(function(data) {
 		$scope.posts = data[0];
-		$('.data').append('<pre>'+JSON.stringify($scope.posts, null,"    ")+'</pre>');
+		$('#data').append('<pre>'+JSON.stringify($scope.posts, null,"    ")+'</pre>');
 	});
 });

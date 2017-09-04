@@ -8,7 +8,7 @@ var reporting = angular.module('reporting', ['ngRoute']);
 reporting.config(function($routeProvider) {
 
 	$routeProvider.when('/reporting', {
-        templateUrl: 'components/reporting/reporting-partial/reporting-partial.html',
+        templateUrl: 'components/reporting/partials/reporting-main.html',
         controller: 'reportingCtrl'
     });
 });

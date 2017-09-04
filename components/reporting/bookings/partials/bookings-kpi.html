@@ -1,0 +1,6 @@
+<div class="kpi-module bookings" ng-controller="bookingsKpiCtrl">
+	<h3>{{ kpis.header }}</h3>
+	<ul ng-repeat="(key,val) in kpis.data" class="indicator">
+		<li>{{key}}: {{ val }}</li>
+	</ul>
+</div>

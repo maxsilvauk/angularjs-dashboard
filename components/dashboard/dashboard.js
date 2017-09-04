@@ -7,7 +7,7 @@ var dashboard = angular.module('dashboard', ['ngRoute']);
  */
 dashboard.config(function($routeProvider) {
 	$routeProvider.when('/', {
-        templateUrl: 'components/dashboard/dashboard-partial/dashboard-partial.html',
+        templateUrl: 'components/dashboard/partials/dashboard-main.html',
         controller: 'dashboardCtrl'
     });
 });

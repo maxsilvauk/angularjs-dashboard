@@ -1,9 +1,12 @@
 {
     "kpis": [
         {
-            "title": "bookings",
-            "url": "http://localhost:8000/components/reporting/bookings/bookings-kpi.html"
+            "title": "Bookings",
+            "url": "http://localhost:8000/components/reporting/bookings/partials/bookings-kpi.html"
+        },
+        {
+            "title": "Jiras",
+            "url": "http://localhost:8000/components/jira/partials/jira-kpi.html"
         }
-        
     ]        
 }
