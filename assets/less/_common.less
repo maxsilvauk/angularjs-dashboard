@@ -1,0 +1,60 @@
+// ----------------------------------------------------------------------
+// Common
+// ----------------------------------------------------------------------
+
+body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	width: 100%;
+	background: #F6F6F6;
+	min-width: 600px;
+	font-size: 16px;
+
+	h1, h2, h3 {
+		margin: .8em 0 .2em 0;
+		padding: 0;
+		color: @pp-header-text;
+	}
+
+	p {
+		margin: .4em 0 .8em 0;
+		padding: 0;
+		color: @pp-body-text;
+	}
+
+	a {
+		color: #7B1E2D;
+		outline: none;
+
+		&:hover {
+			color: #fff;
+			background: #7B1E2D;
+			text-decoration: none;
+		}		
+	}
+
+	ul {
+		list-style: none;
+		margin-left: -40px;
+		padding-top: 5px;
+	}
+
+	.no-gutter > [class*='col-'] {
+    	padding-right: 0;
+    	padding-left: 0;
+	}
+
+	#site-content {
+		float: right;
+
+		#content {
+			padding: 20px;
+			
+			h1 {
+				padding-top: 0;
+				margin-top: 0;
+			}
+		}
+	}
+}
