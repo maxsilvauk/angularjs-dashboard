@@ -1,0 +1,61 @@
+<nav class="site-nav col-lg-2 col-md-3 col-sm-2 col-xs-1" ng-controller="navCtrl">
+    <div id="logo-container">
+        <div id="logo"></div>
+        <div id="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+    </div>
+    <ul>
+        <li>
+            <a ng-class="{ active: isActive('/')}" href="/">
+                <i class="fa fa-home" aria-hidden="true"></i> 
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fa fa-search" aria-hidden="true"></i> 
+                Search
+            </a>
+        </li>
+        <li>
+            <a ng-class="{ active: isActive('/bookings')}" href="#!bookings">
+                <i class="fa fa-book" aria-hidden="true"></i> 
+                Bookings
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fa fa-plane" aria-hidden="true"></i> 
+                Supplier
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fa fa-cog" aria-hidden="true"></i> 
+                Config
+            </a>
+        </li>
+        <li>
+            <a ng-class="{ active: isActive('/reporting')}" href="#!reporting">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i> 
+                Reports
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fa fa-wrench" aria-hidden="true"></i> 
+                Tools
+            </a>
+        </li>
+        <li>
+            <a href="/">
+                <i class="fa fa-tasks" aria-hidden="true"></i> 
+                Misc
+            </a>
+        </li>
+    </ul>
+</nav>

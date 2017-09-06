@@ -5,6 +5,7 @@
 nav.site-nav {
 	position: fixed;
 	height: 100%;
+	padding: 0px;
 	background: @pp-brand-primary;
 
     #logo-container {
@@ -85,9 +86,9 @@ nav.site-nav {
 	    		display: block;
 	    		color: @pp-nav-item-text;
 				padding: 20px 0 20px 35px;
-				font-size: @pp-size-xlarge;
-				font-weight: 300;
+				font-size: @pp-size-large;
 				text-decoration: none;
+				letter-spacing: 0.7px;
 
 				&.active {
 					background: @pp-nav-item-active;
@@ -107,7 +108,8 @@ nav.site-nav {
 				}
 
 				i {
-					font-size:25px !important;
+					font-size:23px !important;
+					margin-top: -3px;
 					margin-right: 15px;
 					width: 23px;
 					display: block;
