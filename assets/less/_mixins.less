@@ -15,8 +15,31 @@
     }
 }
 
-.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
-	text-shadow: @string;
+.border (@border-side, @border) when (@border-side = all) {
+	border: @border;
+}
+
+.border (@border-side, @border) when (@border-side = left) {
+	border-left:@border;
+}
+
+.border (@border-side, @border) when (@border-side = right) {
+	border-right:@border;
+}
+
+.border (@border-side, @border) when (@border-side = bottom) {
+	border-bottom:@border;
+}
+
+.border (@border-side, @border) when (@border-side = top) {
+	border-top:@border;
+}
+
+.box (@bg-color, @border-side, @border, @width, @height) {
+	background: @bg-color;
+	width: @width;
+	height: @height;
+	.border(@border-side, @border);
 }
 
 .box-shadow (@string) {
@@ -37,6 +60,9 @@
 	box-shadow:         inset @x @y @blur @spread rgba(0, 0, 0, @alpha);
 }
 
+.text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+	text-shadow: @string;
+}
 .box-sizing (@type: border-box) {
 	-webkit-box-sizing: @type;
 	-moz-box-sizing:    @type;
