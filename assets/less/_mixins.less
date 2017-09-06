@@ -2,6 +2,19 @@
 // Mixins
 // ----------------------------------------------------------------------
 
+.font-face(@fontName: sans-serif; @fontWeight: normal; @fontStyle: normal) {
+    @font-face {
+        font-family: @fontName;
+        src: url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.eot');
+        src: url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.eot?#iefix') format('embedded-opentype'),
+             url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.woff') format('woff'),
+             url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.ttf') format('truetype'),
+             url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.svg#@{fontName}-@{fontWeight}') format('svg');
+        font-weight: @fontWeight;
+        font-style: @fontStyle;
+    }
+}
+
 .text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
 	text-shadow: @string;
 }
