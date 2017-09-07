@@ -2,17 +2,24 @@
 // Mixins
 // ----------------------------------------------------------------------
 
-.font-face(@fontName: sans-serif; @fontWeight: normal; @fontStyle: normal) {
+.font-face(@font-name: sans-serif; @font-weight: normal; @font-style: normal) {
     @font-face {
-        font-family: @fontName;
-        src: url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.eot');
-        src: url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.eot?#iefix') format('embedded-opentype'),
-             url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.woff') format('woff'),
-             url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.ttf') format('truetype'),
-             url('.assets/fonts/@{fontName}/@{fontName}-@{fontWeight}.svg#@{fontName}-@{fontWeight}') format('svg');
-        font-weight: @fontWeight;
-        font-style: @fontStyle;
+        font-family: @font-name;
+        src: url('.assets/fonts/@{font-name}/@{font-name}-@{font-weight}.eot');
+        src: url('.assets/fonts/@{font-name}/@{font-name}-@{font-weight}.eot?#iefix') format('embedded-opentype'),
+             url('.assets/fonts/@{font-name}/@{font-name}-@{font-weight}.woff') format('woff'),
+             url('.assets/fonts/@{font-name}/@{font-name}-@{font-weight}.ttf') format('truetype'),
+             url('.assets/fonts/@{font-name}/@{font-name}-@{font-weight}.svg#@{font-name}-@{font-weight}') format('svg');
+        font-weight: @font-weight;
+        font-style: @font-style;
     }
+}
+
+.icon (@icon-name, @icon-type, @icon-width, @icon-height, @icon-margin) {
+	background: url('./assets/img/@{icon-name}.@{icon-type}') no-repeat;
+	width: @icon-width;
+	height: @icon-height;
+	margin: @icon-margin;
 }
 
 .border (@border-side, @border) when (@border-side = all) {
@@ -35,11 +42,11 @@
 	border-top:@border;
 }
 
-.box (@bg-color, @border-side, @border, @width, @height) {
-	background: @bg-color;
-	width: @width;
-	height: @height;
-	.border(@border-side, @border);
+.box (@box-bg-color, @box-border-side, @box-border, @box-width, @box-height) {
+	background: @box-bg-color;
+	width: @box-width;
+	height: @box-height;
+	.border(@box-border-side, @box-border);
 }
 
 .box-shadow (@string) {
@@ -63,6 +70,7 @@
 .text-shadow (@string: 0 1px 3px rgba(0, 0, 0, 0.25)) {
 	text-shadow: @string;
 }
+
 .box-sizing (@type: border-box) {
 	-webkit-box-sizing: @type;
 	-moz-box-sizing:    @type;
@@ -79,21 +87,21 @@
 	background-clip:         padding-box;
 }
 
-.border-radiuses (@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
-	-webkit-border-top-right-radius:    @topright;
+.border-radiuses (@top-right: 0, @bottom-irght: 0, @bottom-left: 0, @top-left: 0) {
+	-webkit-border-top-right-radius:    @top-right;
 	-webkit-border-bottom-right-radius: @bottomright;
 	-webkit-border-bottom-left-radius:  @bottomleft;
 	-webkit-border-top-left-radius:     @topleft;
 
-	-moz-border-radius-topright:        @topright;
-	-moz-border-radius-bottomright:     @bottomright;
-	-moz-border-radius-bottomleft:      @bottomleft;
-	-moz-border-radius-topleft:         @topleft;
+	-moz-border-radius-topright:        @top-right;
+	-moz-border-radius-bottomright:     @bottom-right;
+	-moz-border-radius-bottomleft:      @bottom-left;
+	-moz-border-radius-topleft:         @top-left;
 
-	border-top-right-radius:            @topright;
-	border-bottom-right-radius:         @bottomright;
-	border-bottom-left-radius:          @bottomleft;
-	border-top-left-radius:             @topleft;
+	border-top-right-radius:            @top-right;
+	border-bottom-right-radius:         @bottom-right;
+	border-bottom-left-radius:          @bottom-left;
+	border-top-left-radius:             @top-left;
 
 	-moz-background-clip:    padding; 
 	-webkit-background-clip: padding-box; 
@@ -106,28 +114,28 @@
 	opacity: 			@opacity;
 }
 
-.gradient (@startColor: #eee, @endColor: white) {
-	background-color: @startColor;
-	background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
-	background: -webkit-linear-gradient(top, @startColor, @endColor);
-	background: -moz-linear-gradient(top, @startColor, @endColor);
-	background: -ms-linear-gradient(top, @startColor, @endColor);
-	background: -o-linear-gradient(top, @startColor, @endColor);
+.gradient (@gradient-start: #eee, @gradient-end: white) {
+	background-color: @gradient-start;
+	background: -webkit-gradient(linear, left top, left bottom, from(@gradient-start), to(@gradient-end));
+	background: -webkit-linear-gradient(top, @gradient-start, @gradient-end);
+	background: -moz-linear-gradient(top, @gradient-start, @gradient-end);
+	background: -ms-linear-gradient(top, @gradient-start, @gradient-end);
+	background: -o-linear-gradient(top, @gradient-start, @gradient-end);
 }
 
-.horizontal-gradient (@startColor: #eee, @endColor: white) {
- 	background-color: @startColor;
-	background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
-	background-image: -webkit-linear-gradient(left, @startColor, @endColor);
-	background-image: -moz-linear-gradient(left, @startColor, @endColor);
-	background-image: -ms-linear-gradient(left, @startColor, @endColor);
-	background-image: -o-linear-gradient(left, @startColor, @endColor);
+.horizontal-gradient (@gradient-start: #eee, @gradient-end: white) {
+ 	background-color: @gradient-start;
+	background-image: -webkit-gradient(linear, left top, right top, from(@gradient-start), to(@gradient-end));
+	background-image: -webkit-linear-gradient(left, @gradient-start, @gradient-end);
+	background-image: -moz-linear-gradient(left, @gradient-start, @gradient-end);
+	background-image: -ms-linear-gradient(left, @gradient-start, @gradient-end);
+	background-image: -o-linear-gradient(left, @gradient-start, @gradient-end);
 }
 
-.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
-	-webkit-animation: @name @duration @delay @ease;
-	-moz-animation:    @name @duration @delay @ease;
-	-ms-animation:     @name @duration @delay @ease;
+.animation (@animation-name, @duration: 300ms, @animation-delay: 0, @ease: ease) {
+	-webkit-animation: @animation-name @duration @animation-delay @ease;
+	-moz-animation:    @animation-name @duration @animation-delay @ease;
+	-ms-animation:     @animation-name @duration @animation-delay @ease;
 }
 
 .transition (@transition) {
