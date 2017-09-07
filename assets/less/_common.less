@@ -50,12 +50,23 @@ body {
     	padding-left: 0;
 	}
 
-	#site-content {
-		float: right;
+	.float-right {
+		float:right !important;
+	}
 
-		#content {
-			padding: 20px;
-			
+	*:focus {
+    	outline: none;
+	}
+
+	#content {
+		margin-top: -5px;
+
+		#content-header {
+			min-height: 200px;
+			background-color: #FBFBFB;
+		}
+
+		#content-body {
 			h1 {
 				padding-top: 0;
 				margin-top: 0;

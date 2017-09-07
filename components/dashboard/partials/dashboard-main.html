@@ -1,6 +1,8 @@
-<h1>Dashboard Partial</h1>
-<div>
-    <div ng-repeat="view in kpis">
-        <ng-include src="view.url"></ng-include>
-    </div>
+<div id="content-header"> 
+	<p>Welcome, <span>Super Admin</span></p>
+</div>
+
+<h1>KPI</h1>
+<div ng-repeat="view in kpis">
+    <ng-include src="view.url"></ng-include>
 </div>

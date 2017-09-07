@@ -33,8 +33,8 @@
   <body>
     <div class="site-container no-gutter">
         <div ng-include="'components/shared/partials/nav.html'"></div>
-        <div ng-include="'components/shared/partials/header.html'"></div>
-        <div id="site-content" class="col-lg-10 col-md-9 col-sm-10 col-xs-11">
+        <div class="col-lg-10 col-md-9 col-sm-10 col-xs-11 float-right">
+            <div ng-include="'components/shared/partials/header.html'"></div>
             <div id="content" ng-view></div>
         </div>
         <div ng-include="'components/shared/partials/footer.html'"></div>
