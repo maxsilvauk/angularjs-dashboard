@@ -12,6 +12,8 @@ body {
 	min-width: 600px;
 	font-family: @pp-family-regular;
 	font-size: @pp-size-regular;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 
 	h1, h2, h3 {
 		margin: .8em 0 .2em 0;
@@ -26,12 +28,12 @@ body {
 	}
 
 	a {
-		color: #7B1E2D;
+		color: @pp-brand-secondary;
 		outline: none;
 
 		&:hover {
-			color: #fff;
-			background: #7B1E2D;
+			color: #FFFFFF;
+			background: @pp-brand-secondary;
 			text-decoration: none;
 		}		
 	}
