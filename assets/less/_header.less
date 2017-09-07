@@ -17,13 +17,11 @@ header {
 
 		&:hover {
 			background: @pp-brand-secondary;
+			.transition(all 0.5s ease-out);
 		}
 
 		.icon {
-			background: url('./assets/img/exit.svg') no-repeat;
-		    width: 36px;
-		    height: 36px;
-		    margin: 25px 32px;
+			.icon(exit, svg, 36px, 36px, 25px 32px);
 		}
 	}
 
