@@ -6,20 +6,24 @@ header {
 	background:white;
 	width:100%;
 	height:79px;
+	color: @pp-header-text;
+	font-size: @pp-size-large;
 
 	#logout-btn {
 		.box(@pp-brand-primary, all, none, 85px, 79px);
 		float:right;
 		display:inline-block;
+		cursor:pointer;
 
 		&:hover {
-
+			background: @pp-brand-secondary;
 		}
 
-		i {
-			padding:19px 27px;
-		    color: white;
-		    font-size: 40px;
+		.icon {
+			background: url('./assets/img/exit.svg') no-repeat;
+		    width: 36px;
+		    height: 36px;
+		    margin: 25px 32px;
 		}
 	}
 
