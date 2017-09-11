@@ -7,6 +7,10 @@
         {
             "title": "Jiras",
             "url": "http://localhost:8000/components/jira/partials/jira-kpi.html"
+        },
+        {
+            "title": "Jiras",
+            "url": "http://localhost:8000/components/jira/partials/jira-kpi.html"
         }
     ]        
 }

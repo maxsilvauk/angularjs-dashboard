@@ -1,6 +1,31 @@
 <div class="kpi-module jiras" ng-controller="jiraKpiCtrl">
-	<h3>{{ kpis.header }}</h3>
-	<ul ng-repeat="(key,val) in kpis.data" class="indicator">
-		<li>{{key}}: {{ val }}</li>
-	</ul>
+	<div class="kpi-module-header">
+		<div class="row">
+			<div class="col-md-2">
+				<div class="icon"></div>
+			</div>
+			<div class="col-md-7">
+				<h3>{{ kpis.header }}</h3>
+			</div>
+			<div class="col-md-3 total float-right">
+				<span class="bold">{{ kpis.total }}</span> Open
+			</div>		
+		</div>
+	</div>
+	<div class="kpi-module-body">
+		<div class="row">
+			<ul ng-repeat="(key,val) in kpis.data" class="indicator">
+				<li class="{{ key }}">
+					<h4 class="bold">{{ val }}</h4>
+					<br/>
+					<span>{{ key }}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="kpi-module-footer">
+		<div class="row">
+			<a href="#"></a>
+		</div>
+	</div>
 </div>
