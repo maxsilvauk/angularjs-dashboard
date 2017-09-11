@@ -2,70 +2,90 @@
 // Header
 // ----------------------------------------------------------------------
 
-header {
-	.box(#FFFFFF, bottom, 1px solid @pp-header-line-grey, 100%, 79px);
+header.row {
+	margin: 0;
+	height: 79px;
 	color: @pp-header-text;
+	background-color: #FFFFFF;
 	font-size: @pp-size-large;
+	border-bottom: 1px solid @pp-header-line-grey;
 
-	#logout-btn {
-		.box(@pp-brand-primary, all, none, 85px, 100%);
-		float: right;
-		display: inline-block;
-		cursor: pointer;
+	.header-left {
+		padding:0;
 
-		&:hover {
-			background: @pp-brand-secondary;
-			.transition(all 0.5s ease-out);
-		}
+		#header-search {
+			float: left;
+			height: 79px;
+			width: 90%;
 
-		.icon {
-			.icon(exit, svg, 36px, 36px, 25px 32px);
+			form {
+	    		top: 0;
+	    		left: 70px;
+	    		width: 80%;
+	    		position: absolute;
+
+	    		.form-group {
+					margin-bottom:0px;
+				
+		    		input.form-control {
+		    			width: 100%;
+		    			border: none;
+		    			height: 78px;
+		    			font-size: 24px;
+		    			color: @pp-header-text;
+		    			padding: 2px 0px 0px 0px;
+		    			.removeBootStrapFormOutline();
+
+	    			}
+				}
+			}
+
+			.icon {
+				.icon(search, svg, 36px, 36px, 27px 32px);
+			}
 		}
 	}
 
-	#auth-infoBox {
-		.box(white, left, 1px solid @pp-header-line-grey, 285px, 100%);
-		float: right;
-		display: inline-block;
+	.header-right {
+		padding:0; 
 
-		p {
-		    display: inline;
-		    top: -14px;
-		    left: 4px;
-		    position: relative;
-		}
-
-		.icon {
-			.icon(user, svg, 36px, 36px, 25px 0px 0px 30px);
+		#header-logout {
+			top: 0;
+			right: 0;
+			position: absolute;
+			cursor: pointer;
+			padding: 25px 32px;
 			display: inline-block;
+			.box(@pp-brand-primary, all, none, 85px, 79px);
+
+			&:hover {
+				background: @pp-brand-secondary;
+				.transition(all 0.5s ease-out);
+			}
+
+			.icon {
+				.icon(exit, svg, 30px, 30px, none);
+			}
 		}
-	}
 
-	#search-txtBox {
-		float: left;
-		height: 100%;
-		width: 50%;
-
-		form {
+		#header-info {
+			right: 85px;
+			padding: 22px 30px;
+			position: absolute;
 			display: inline-block;
-    		position: absolute;
-    		top: 0;
-    		left: 70px;
-    		width: 50%;
-    		.border(bottom, 1px solid @pp-header-line-grey);
+			.box(none, left, 1px solid @pp-header-line-grey, 100%, 79px);
 
-    		input {
-    			height: 79px;
-    			width: 100%;
-    			font-size: 24px;
-    			border: none;
-    			color: @pp-header-text;
-    			padding-top: 5px;
-    		}
-		}
+			p {
+				top: -19%;
+			    left: 3%;
+			    display: inline;
+			    position: relative;
+			}
 
-		.icon {
-			.icon(search, svg, 36px, 36px, 27px 32px);
+			.icon {
+				display: inline-block;
+				.icon(user, svg, 30px, 30px, none);
+			}
 		}
 	}
 }
