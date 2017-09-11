@@ -1,15 +1,21 @@
-<header>
-	<div id="search-txtBox">
-		<div class="icon"></div>
-		<form name="search">
-			<input type="text" name="searchTxtBox" placeholder="Search..."/>
-		</form>
-	</div>
-	<a id="logout-btn">
-		<div class="icon"></div>
-	</a>
-	<div id="auth-infoBox">
-		<div class="icon"></div>
-		<p> logged in as <span class="bold">Super Admin</span></p>
+<header class="row">
+    <div class="header-left col-sm-9">
+		<div id="header-search">
+			<div class="icon"></div>
+			<form>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search..."/>
+				</div>
+			</form>
+		</div>    	
+    </div>
+    <div class="header-right col-sm-3">
+    	<div id="header-info">
+			<div class="icon"></div>
+			<p> logged in as <span class="bold">Super Admin</span></p>
+		</div>
+		<a id="header-logout">
+			<div class="icon"></div>
+		</a>
 	</div>
 </header>
