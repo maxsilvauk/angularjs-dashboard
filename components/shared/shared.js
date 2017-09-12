@@ -10,7 +10,7 @@ shared.controller('navCtrl', function($scope, $location) {
 	$scope.isActive = function (viewLocation) {
 
 		// Set hamburger icon to open. 
-		$('#hamburger-icon').addClass('open');
+		//$('#hamburger-icon').addClass('open');
 
 		// Return location path.
         return viewLocation === $location.path();
