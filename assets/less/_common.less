@@ -58,7 +58,7 @@ body {
 	}
 
 	.pull-up {
-		margin: 50px 22px 40px 2px;
+		margin: 50px 22px 12px 2px;
 		border-top: 1px solid #E2E2E2;
 	
 		a {	
@@ -66,13 +66,12 @@ body {
 			top: -18px;
 		    width: 35px;
 		    height: 35px;
+		    color: #898989;
 		    display: block;
 		    background: white;
 		    border-radius: 50%;
 		    position: relative;
 		    border: 1px solid #E2E2E2;
-
-		    color: #898989;
 		    
 		    &:hover {
 		    	color: #CE2443;
@@ -130,7 +129,7 @@ body {
 					margin: 0px 0px 20px 0px !important;
 				}
 				
-				.col-sm-4 {
+				.col-sm-4, .col-sm-8 {
 					padding:0;
 				}
 
@@ -138,26 +137,30 @@ body {
 					.col-sm-4 {
 				    	width: 32%;
 					}
+
+					.col-sm-8 {
+				    	width: 64.9%;
+				    }
 				}
 
-				.kpi-col {
+				.col {
 					&:nth-child(n) {
             			margin-right: 1%;
         			}
 
 					.last  {
-            			margin-right:0;
+            			margin-right: 0;
         			}
 
-					.kpi-module {
-						.border-radiuses (0, 4px, 4px, 0);
-						.box(#FFFFFF, all, 1px solid @pp-kpi-line-grey, auto, auto);
+					.module {
+						.border-radiuses (0, 6px, 6px, 0);
+						.box(#FFFFFF, all, 1px solid @pp-module-line-grey, auto, auto);
 
-						.kpi-module-header {
-							.box(@pp-kpi-header-bg, bottom, 1px solid @pp-kpi-line-grey, auto, 55px);
+						.module-header {
+							.box(@pp-module-header-bg, bottom, 1px solid @pp-module-line-grey, auto, 55px);
 
 							.row {
-								.col-md-7 {
+								.col-md-7, .col-md-9, .col-md-10 {
 									padding:0px;
 
 									h3 {
@@ -172,26 +175,26 @@ body {
 									padding: 20px 10px 0px;
 									font-size: @pp-size-regular;
 									color: @pp-pink-purple-total;
-									.box(@pp-kpi-total-bg, left, 1px solid @pp-kpi-line-grey, none, 54px);
+									.box(@pp-module-total-bg, left, 1px solid @pp-module-line-grey, none, 54px);
 								}
 							}
 						}
 
-						.kpi-module-body {
+						.module-body {
 							padding: 13px 18px;
 							
 							.row {
 								text-align: center;
 
 								ul, li, h4, span {
-									display:inline-block;
+									display: inline-block;
 								}
 
 								ul {
 									li {
 										padding: 10px;
 										margin: 6px 2px;
-										text-align:center;
+										text-align: center;
 										.border-radius (3px);
 										.box(@pp-kpi-box-bg, all, none, 70px, auto);
 										.box-shadow(0px 1px 0px 0px @pp-kpi-box-shadow);
@@ -210,10 +213,10 @@ body {
 							}
 						}
 
-						.kpi-module-footer {
+						.module-footer {
 							.row {
 								a {
-									display:block;
+									display: block;
 									.icon(kpi-edit-cog, svg, 24px, 24px, -10px 0px 13px 13px);
 									.opacity(0.5);
 									

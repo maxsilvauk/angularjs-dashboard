@@ -1,2 +1,115 @@
-/* Component LESS */
-/* Add Component LESS Above */
+.module {
+	.module-body {
+		padding:0 !important;
+
+		.row {
+			.table {
+				margin-bottom: 0px;
+				text-align: left;
+
+				tr {
+					cursor:pointer;
+
+					td {
+						color: @pp-body-text;
+						border-top: none;
+    					padding: 15px 20px;
+
+    					p {
+    						margin: .4em 0 0 0;
+    					}
+
+    					p.header {
+    						font-size: @pp-size-xxlarge;
+    						font-family: @pp-family-xbold;
+    						margin: 0;
+    					}
+					}
+
+					td.cta {
+    					vertical-align: middle;
+
+    					i {
+    						font-size: @pp-size-xxlarge;
+    					}
+    				}
+				}
+			}
+		}
+	}
+}
+
+.module.mailchimp {
+	.module-header {
+		.row {
+			.table-striped-even > tbody > tr:nth-of-type(even) {
+			  background-color: black;
+			}
+
+			.table-hover > tbody > tr:hover {
+			  background-color: #f5f5f5;
+			}
+
+			.col-md-1 {
+				.icon(mailchimp, png, 24px, 26px, 14px 0px 14px 18px);
+			}
+		}
+	}
+
+	.module-body {
+		.row {
+			.table {
+				tr {
+					&:nth-of-type(even) {
+						background-color: @pp-table-stripe;
+					}
+
+					&:hover {
+						background-color: @pp-table-hover;
+						.transition(all 0.3s ease-out);
+					}
+				}
+			}
+		}
+	}
+}
+
+.module.serverstatus {
+	.module-header {
+		.row {
+			.col-md-1 {
+				.icon(plane, svg, 24px, 26px, 16px 0px 14px 18px);
+			}
+		}
+	}
+
+	.module-body {
+		.row {
+			.table {
+				tr.down {
+					background-color: #F2C2CB;
+
+					i {
+						color: #CE2443;
+					}		
+				}
+
+				tr.neutral {
+					background-color: #F4BEA0;
+
+					i {
+						color: #F89650;
+					}
+				}
+
+				tr.up {
+					background-color: #C7E8DB;
+
+					i {
+						color: #5CB18D;
+					}
+				}
+			}
+		}
+	}
+}
