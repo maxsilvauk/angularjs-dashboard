@@ -79,7 +79,7 @@ body {
 		    }
 
 		    i {
-		   		padding: 10px;
+		    	padding: 10px 10.5px
 		    }
 		}
 	}
@@ -199,6 +199,16 @@ body {
 										.box(@pp-kpi-box-bg, all, none, 70px, auto);
 										.box-shadow(0px 1px 0px 0px @pp-kpi-box-shadow);
 
+										&:hover {
+											cursor:pointer;
+											background-color:#818181;
+											.transition(all 1s ease-out);
+
+											h4, span {
+												color: white !important;
+											}
+										}
+
 										h4 {
 											color: @pp-body-text;
 											font-size: @pp-size-xxxlarge;
@@ -216,9 +226,9 @@ body {
 						.module-footer {
 							.row {
 								a {
-									display: block;
-									.icon(kpi-edit-cog, svg, 24px, 24px, -10px 0px 13px 13px);
 									.opacity(0.5);
+									display: block;
+									.icon(kpi-edit-cog, svg, 24px, 24px, 0px 0px 13px 13px);
 									
 									&:hover {
 										.opacity(1);
