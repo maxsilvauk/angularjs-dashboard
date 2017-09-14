@@ -27,4 +27,8 @@ jira.controller('jiraKpiCtrl', function($scope, jiraData) {
         var obj = data[0];
         $scope.kpis = obj.data;
     });
+
+    $(".change-kpi").click(function() {
+        $('#change-kpi-modal').modal('show');
+    });
 });
