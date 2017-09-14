@@ -43,6 +43,11 @@ bookings.controller('bookingsKpiCtrl', function($scope, bookingsData) {
         var obj = data[0];
         $scope.kpis = obj.data;
     });
+
+    // Change KPI.
+    $(".change-kpi").click(function() {
+        $('#change-kpi-modal').modal('show');
+    });
 });
 
 /**
