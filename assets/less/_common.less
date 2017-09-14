@@ -84,6 +84,20 @@ body {
 		}
 	}
 
+	table {
+		tr:last-child td:first-child { 
+			.border-radiuses (0, 0, 6px, 0);
+		}
+
+		tr:last-child td:last-child { 
+			.border-radiuses (0, 6px, 0, 0);
+		}
+	}
+
+	#right {
+		.transition(.5s ease-in-out);
+	}
+
 	#content {
 		#content-header {
 			min-height: 170px;
@@ -225,9 +239,9 @@ body {
 
 						.module-footer {
 							.row {
-								a {
+								.change-kpi {
 									.opacity(0.5);
-									display: block;
+									cursor:pointer;
 									.icon(kpi-edit-cog, svg, 24px, 24px, 0px 0px 13px 13px);
 									
 									&:hover {
