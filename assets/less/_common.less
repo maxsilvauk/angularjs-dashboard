@@ -57,9 +57,14 @@ body {
     	outline: none;
 	}
 
+	.kpi-container {
+		.transition(all 1s ease-out);
+	}
+
 	.pull-up {
 		margin: 50px 22px 12px 2px;
 		border-top: 1px solid #E2E2E2;
+		.transition(all 0.5s ease-out);
 	
 		a {	
 			left: 48%;
@@ -78,10 +83,18 @@ body {
 		    	border: 1px solid #CE2443;
 		    }
 
-		    i {
-		    	padding: 10px 10.5px
+		    i.fa-chevron-down {
+		    	padding: 11px 10.5px
+		    }
+
+		    i.fa-chevron-up {
+		    	padding: 10px 10.5px;
 		    }
 		}
+	}
+
+	.pull-up.closed {
+		margin-top:25px;
 	}
 
 	table {

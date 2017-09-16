@@ -36,6 +36,23 @@ dashboard.factory('Data', function($http, $q) {
  * @param Data
  */
 dashboard.controller('dashboardCtrl', function($http, $q, $scope, Data) {
+
+    // Pull up divider
+    $('.pull-up a').click(function(event) {
+        event.preventDefault();
+        
+        $('.pull-up').toggleClass('closed');
+
+        if ($('.pull-up i').hasClass('fa-chevron-down')) {
+             $('.kpi-container').fadeOut(200,'linear');
+            $('.pull-up i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        } else {
+             $('.kpi-container').fadeIn(200,'linear');
+            $('.pull-up i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+        }
+    });
+
+    // Get all KPIs
 	$q.all([
         $http.get('/json/kpis.json')
     ]).then(function(data) {
