@@ -1,0 +1,79 @@
+// ----------------------------------------------------------------------
+// Modals
+// ----------------------------------------------------------------------
+
+.modal-content {
+	border: none;
+	.box-shadow(none);
+	background: #FBFBFB;
+	.border-radius(4px);
+
+	.modal-header {
+		color: white;
+		height: 75px;
+		background-color: #7B1E2D;
+
+		.modal-icon {
+			width: 30px;
+		    height: 30px;
+		    display:inline-block;
+		    background: url('./assets/img/logo.svg') no-repeat;
+		}
+
+		h5 {
+			top: 18px;
+    		left: 50px;
+    		font-size: 16px;
+			display: inline;
+			position: absolute;
+			display: inline-block;
+			font-family: @pp-family-xbold;
+		}
+
+		.close {
+			display:inline-block;
+		}
+	}
+
+	.modal-body {
+		padding: 20px 20px 0px 20px;
+
+		form {
+			padding: 0px 40px;
+
+			input {
+				padding: 10px 20px;
+    			border: none;
+    			height: 40px;
+			}
+
+			select {
+				width: 100%;
+			    height: 40px;
+			    border: none;
+			    border-radius: 2px;
+			    background: #F6F6F6;
+			    letter-spacing: 0.4px;
+			}
+		}
+	}
+
+	.modal-footer {
+		border-top:none;
+		text-align:center;
+		background: #FBFBFB;
+	}
+
+	.btn-primary {
+		border: none;
+		color: #FFFFFF;
+		font-size: 13px;
+		padding: 9px 15px;
+		.border-radius(2px);
+		background: #FBFBFB;
+		letter-spacing: 0.1px;
+    	background-color: #7B1E2D;
+    	font-family: @pp-family-bold;
+    	.transition(all 0.5s ease-out);
+	}
+}
