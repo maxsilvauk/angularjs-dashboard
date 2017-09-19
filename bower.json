@@ -8,7 +8,7 @@
     "bower_components"
   ],
   "dependencies": {
-    "jquery":"*",
+    "jquery": "*",
     "lodash": "*",
     "bootstrap": "*",
     "angular": "*",
@@ -20,6 +20,7 @@
     "angular-bootstrap": "*",
     "moment": "*",
     "less.js": "*",
-    "font-awesome": "*"
+    "font-awesome": "*",
+    "angular-google-auth2": "^1.0.8"
   }
 }
