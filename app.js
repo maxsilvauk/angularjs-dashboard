@@ -1,5 +1,5 @@
 // Define module.
-var paxportApp = angular.module('paxportal', ['ngRoute','shared','dashboard','reporting','bookings','jira']);
+var paxportApp = angular.module('paxportal', ['angular-google-auth2','ngRoute','shared','dashboard','reporting','bookings','jira']);
 
 // PaxportApp Route.
 paxportApp.config(function($routeProvider) {
