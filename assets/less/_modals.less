@@ -2,6 +2,11 @@
 // Modals
 // ----------------------------------------------------------------------
 
+.modal-open .modal.modal-center {
+    display: flex!important;
+    align-items: center!important;
+}
+
 .modal-content {
 	border: none;
 	.box-shadow(none);
@@ -11,7 +16,14 @@
 	.modal-header {
 		color: white;
 		height: 75px;
+		padding: 22px;
 		background-color: #7B1E2D;
+		border-top-right-radius: 3px;
+		border-top-left-radius: 3px;
+
+		.modal-title {
+		    padding: 8px 10px;
+		}
 
 		.modal-icon {
 			width: 30px;
@@ -32,7 +44,7 @@
 
 		.close {
 			display:inline-block;
-		}
+		}	
 	}
 
 	.modal-body {
@@ -69,17 +81,20 @@
 		border-top:none;
 		text-align:center;
 		background: #FBFBFB;
+		padding-bottom: 20px;
+		border-bottom-right-radius: 3px;
+		border-bottom-left-radius: 3px;
 	}
 
 	.btn-primary {
 		border: none;
 		color: #FFFFFF;
 		font-size: 13px;
+		text-shadow:none;
 		padding: 9px 15px;
+		background:#5BB18E;
 		.border-radius(2px);
-		background: #FBFBFB;
 		letter-spacing: 0.1px;
-    	background-color: #7B1E2D;
     	font-family: @pp-family-bold;
     	.transition(all 0.5s ease-out);
 	}
