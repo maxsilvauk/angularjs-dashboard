@@ -133,8 +133,8 @@ body {
 					}
 
 					#icon {
-						.icon(building, svg, 18px, 18px, none);
 						 display: inline-block;
+						.icon(building, svg, 18px, 18px, none);
 					}
 
 					p {
@@ -142,6 +142,29 @@ body {
 						letter-spacing: 0.2px;
 						font-size: @pp-size-large;
 					}
+				}
+
+				.nav-tabs {
+				    bottom: -21px;
+				    height: 50px;
+				    margin-left: 0;
+				    margin-top: 20px;
+				    position: relative;
+				    border-bottom: none;
+
+				    li {
+				    	padding: 10px 40px;
+    					margin-right: 10px;
+
+				    	a {
+				    		border: none;
+				    		background-color: #FBFBFB;
+
+				    		&:hover {
+				    			border-bottom: 1px solid red;
+				    		}
+				    	}
+				    }
 				}
 			}
 		}
