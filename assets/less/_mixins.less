@@ -15,6 +15,62 @@
     }
 }
 
+.nav-bounce() {
+	@-moz-keyframes bounce {
+	        0%{ -moz-transform:scale(1.1); }
+	        50%{ -moz-transform:scale(1.15);}
+	        75%{ -moz-transform:scale(1.1);}
+	        100%{ -moz-transform:scale(1);}
+	}
+
+	@-webkit-keyframes bounce {
+	        0%{ -webkit-transform:scale(1.1);}
+	        50%{ -webkit-transform:scale(1.15);}
+	        75%{ -webkit-transform:scale(1.1);}
+	        100%{ -webkit-transform:scale(1)}
+	}
+
+	&:hover {
+		i {
+			-moz-animation:bounce 1s linear;  
+			-webkit-animation:bounce 1s linear; 
+		}
+	}
+}
+
+
+.condensed() {
+	width: 76px;
+	#logo-container {
+	    #logo {
+			width: 30px;
+			margin-left: 2px;
+			.transition(.1s ease-in-out);
+		}
+	}
+
+	ul {
+		li {
+			a {
+				.nav-bounce();
+
+				i {
+					margin-left: -7px;
+				}
+
+				span {
+					.transition(.1s ease-in-out);
+					display:none;
+				}
+			}
+		}
+	}
+
+	#nav-toggle i {
+	    right: 25px;
+	}
+}
+
 .removeBootStrapFormOutline() {
 	outline: !none;
 	border: none !important;

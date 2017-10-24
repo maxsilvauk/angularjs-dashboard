@@ -9,7 +9,6 @@
     <script src="http://localhost:35729/livereload.js" data-concat="false"></script>
 
     <!-- JS from Bower Components -->
-    <script src="https://apis.google.com/js/api:client.js"></script>
     <script src="bower_components/less.js/dist/less.js" data-concat="false"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -20,8 +19,6 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-    <script src="bower_components/angular-google-auth2/build/js/angular-google-auth2.js"></script>
-    <link rel="stylesheet" type="text/css" href="bower_components/angular-google-auth2/build/css/style.css">
 
     <!-- Main App JS -->
     <script src="app.js"></script>
@@ -36,7 +33,7 @@
   <body>
     <div class="site-container no-gutter">
         <div ng-include="'components/shared/partials/nav.html'"></div>
-        <div id="right" class="col-lg-10 col-md-9 col-sm-10 col-xs-11 float-right">
+        <div id="right">
             <div ng-include="'components/shared/partials/header.html'"></div>
             <div id="content" ng-view></div>
         </div>
