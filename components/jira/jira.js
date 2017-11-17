@@ -7,7 +7,7 @@ var jira = angular.module('jira', []);
  * @param $q
  */
 jira.factory('jiraData', function($http, $q) {
-	var url = 'https://jsonplaceholder.typicode.com';
+    var url = 'https://jsonplaceholder.typicode.com';
     return {
         getKpi: function() {
             return $q.all([

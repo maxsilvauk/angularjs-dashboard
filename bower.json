@@ -21,6 +21,6 @@
     "moment": "*",
     "less.js": "*",
     "font-awesome": "*",
-    "angular-google-auth2": "^1.0.8"
+    "AngularJS-OAuth2": "angularjs-oauth2#^1.2.3"
   }
 }

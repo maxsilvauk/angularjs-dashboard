@@ -2,13 +2,32 @@
 var bookings = angular.module('bookings', ['ngRoute']);
 
 /**
+ * filterByDate directive
+ */
+bookings.directive("filterByDate", function($rootScope) {
+    return {
+        controller: function($scope, filterByDateService) {
+            $scope.setData = function(date='') {
+                $rootScope.startDate = date;
+                $rootScope.endDate = date;
+
+                filterByDateService.getData(date);
+                $rootScope.$emit("getBookings");
+            }
+        },
+        restrict: 'E',
+        transclude: true,
+        template: '<button type="button" class="btn btn-primary" ng-click="setData(1)">1st Booking</button> <button type="button" class="btn btn-primary" ng-click="setData()">All Bookings</button>'
+    }
+});
+
+/**
  * Bookings config
  * @param $routeProvider
  */
 bookings.config(function($routeProvider) {
 	$routeProvider.when('/bookings', {
-        templateUrl: 'components/reporting/bookings/partials/bookings-main.html',
-        controller: 'bookingsCtrl'
+        templateUrl: 'components/reporting/bookings/partials/bookings-main.html'
     });
 });
 
@@ -17,17 +36,16 @@ bookings.config(function($routeProvider) {
  * @param $http
  * @param $q
  */
-bookings.factory('bookingsData', function($http, $q) {
-	var url = 'https://jsonplaceholder.typicode.com';
+bookings.factory('bookingsData', function(apiURL, $http, $q, $rootScope) {
     return {
-        allPosts: function() {
+        getPosts: function() {
             return $q.all([
-                $http.get(url + '/posts')
+                $http.get(apiURL+$rootScope.startDate)
             ]);
         },
-        getKpi: function() {
+        getKpiList: function() {
             return $q.all([
-                $http.get('http://localhost:8000/json/number_of_bookings.json')
+                $http.get('/json/number_of_bookings.json')
             ]);
         }
     };
@@ -38,15 +56,9 @@ bookings.factory('bookingsData', function($http, $q) {
  * @param $scope
  * @param Data
  */
-bookings.controller('bookingsKpiCtrl', function($scope, bookingsData) {
-    bookingsData.getKpi().then(function(data) {
-        var obj = data[0];
-        $scope.kpis = obj.data;
-    });
-
-    // Change KPI.
-    $(".change-kpi").click(function() {
-        $('#change-kpi-modal').modal('show');
+bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, bookingsData, filterByDateService) {
+    bookingsData.getKpiList().then(function(data) {
+        $scope.kpis = data[0].data;
     });
 });
 
@@ -55,9 +67,17 @@ bookings.controller('bookingsKpiCtrl', function($scope, bookingsData) {
  * @param $scope
  * @param Data
  */
-bookings.controller('bookingsCtrl', function($scope, bookingsData) {
-	bookingsData.allPosts().then(function(data) {
-		$scope.posts = data[0];
-		$('#data').append('<pre>'+JSON.stringify($scope.posts, null,"    ")+'</pre>');
-	});
+bookings.controller('bookingsCtrl', function($http, $q, $scope, bookingsData, filterByDateService, $rootScope) {
+    function getBookings() {
+        bookingsData.getPosts().then(function(data) {
+            $scope.posts = data[0];
+            $('#data').empty().append('<pre>'+JSON.stringify($scope.posts, null,"    ")+'</pre>');
+        });
+    }
+
+    $rootScope.$on("getBookings", function() {
+        getBookings();
+    });
+
+    getBookings();
 });
