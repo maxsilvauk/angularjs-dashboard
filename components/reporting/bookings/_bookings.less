@@ -1,3 +1,43 @@
+#bookings {
+	#content-header {
+		#content-header-body {
+			.row {
+				#filter-by-date {
+					padding:20px 0px 20px;
+
+					#title {
+						 margin-right: 10px;
+						display:inline-block;
+						color: @pp-header-text;
+						font-family: @pp-family-xbold;
+					}
+
+					.btn { 
+						display:inline-block;
+						background: none;
+					    border: 1px solid #CACACA;
+					    font-family: @pp-family-bold;
+					    color: #8D8D8D;
+					    border-radius: 3px;
+					    padding: 6px 12px;
+					    font-size: 12px;
+
+					    &:hover, &.selected {
+					    	background: #D13151;
+					    	color:white;
+					    	border: 1px solid #D13151;
+					    }
+
+					    &.selected {
+					    	font-family: @pp-family-xbold;
+					    }
+					}
+				}
+			}
+		}
+	}
+}
+
 .module.bookings {
 	.module-header {
 		.row {

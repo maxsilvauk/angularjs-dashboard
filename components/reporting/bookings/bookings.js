@@ -1,25 +1,34 @@
 // Define bookings module.
 var bookings = angular.module('bookings', ['ngRoute']);
 
+bookings.constant('PARTIALS_DIR','components/reporting/bookings/partials/');
+
 /**
  * filterByDate directive
  */
-bookings.directive("filterByDate", function($rootScope) {
+bookings.directive("filterByDate", ['PARTIALS_DIR', function(PARTIALS_DIR, $rootScope) {
     return {
-        controller: function($scope, filterByDateService) {
-            $scope.setData = function(date='') {
-                $rootScope.startDate = date;
-                $rootScope.endDate = date;
-
-                filterByDateService.getData(date);
+        controller: function($scope, $rootScope, filterByDateService) {
+            $scope.setData = function(startDate, endDate, $event) {
+                $rootScope.startDate = startDate;
+                $rootScope.endDate = endDate;
+                filterByDateService.getData(startDate, endDate);
                 $rootScope.$emit("getBookings");
-            }
+
+                if (!$(event.target).hasClass('selected')) {
+                    $("#filter-by-date .btn").each(
+                        function(i, ele) {
+                            $(ele).removeClass('selected');
+                        }
+                    );
+                    $(event.target).addClass('selected');
+                };
+            };
         },
         restrict: 'E',
-        transclude: true,
-        template: '<button type="button" class="btn btn-primary" ng-click="setData(1)">1st Booking</button> <button type="button" class="btn btn-primary" ng-click="setData()">All Bookings</button>'
-    }
-});
+        templateUrl: PARTIALS_DIR+'bookings-filter-by-date.html'
+    };
+}]);
 
 /**
  * Bookings config
@@ -36,11 +45,11 @@ bookings.config(function($routeProvider) {
  * @param $http
  * @param $q
  */
-bookings.factory('bookingsData', function(apiURL, $http, $q, $rootScope) {
+bookings.factory('bookingsData', function(API_URL, $http, $q, $rootScope) {
     return {
         getPosts: function() {
             return $q.all([
-                $http.get(apiURL+$rootScope.startDate)
+                $http.get(API_URL+$rootScope.startDate)
             ]);
         },
         getKpiList: function() {

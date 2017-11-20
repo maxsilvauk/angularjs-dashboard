@@ -1,29 +1,28 @@
-<div id="content-header"> 
-	<div id="content-header-body">
-		<div class="row">
-			<h1>Bookings</h1>
-			<filter-by-date></filter-by-date>
-			<br/>
-			<pre>Start: {{ startDate }}</pre>
-			<pre>End: {{ endDate }}</pre>
+<div id="bookings">
+	<div id="content-header"> 
+		<div id="content-header-body">
+			<div class="row">
+				<h1>Bookings</h1>
+				<filter-by-date></filter-by-date>
+			</div>
 		</div>
 	</div>
-</div>
-<div id="content-body">
-	<div class="kpi-container">
-		<div class="row">
-			<h2>KPI</h2>
+	<div id="content-body">
+		<div class="kpi-container">
+			<div class="row">
+				<h2>KPI</h2>
+			</div>
+			<div class="row">
+				<div class="col col-sm-6">
+			    	<ng-include src="'/components/reporting/bookings/partials/bookings-kpi.html'"></ng-include>
+		    	</div>
+			</div>
 		</div>
 		<div class="row">
-			<div class="col col-sm-6">
-		    	<ng-include src="'/components/reporting/bookings/partials/bookings-kpi.html'"></ng-include>
-	    	</div>
+			<divider></divider>
 		</div>
-	</div>
-	<div class="row">
-		<divider></divider>
-	</div>
-	<div class="row" ng-controller="bookingsCtrl">
-		<div id="data"></div>
+		<div class="row" ng-controller="bookingsCtrl">
+			<div id="data"></div>
+		</div>
 	</div>
 </div>
