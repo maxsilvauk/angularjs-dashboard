@@ -2,7 +2,7 @@
 var paxportApp = angular.module('paxportal', ['ngRoute','shared','dashboard','reporting','bookings','jira']);
 
 // Constants
-paxportApp.constant('apiURL','https://jsonplaceholder.typicode.com/posts/')
+paxportApp.constant('API_URL','http://localhost:3000/posts/');
 
 // $rootScope stuff
 paxportApp.run(
@@ -85,15 +85,10 @@ paxportApp.service('filterByDateService', function ($rootScope) {
 
     function getData(date) {
         return filterDatesObj;
-    };
-
-    function setData(date) {
-        
     }
 
     return {
-        getData: getData,
-        setData: setData
+        getData: getData
     };
 });
 
