@@ -1,43 +1,45 @@
-<!-- <oauth2 authorization-url="https://accounts.google.com/o/oauth2/auth"
-        sign-out-url="https://accounts.google.com/o/oauth2/revoke?token="
-        sign-out-append-token="true"
-        client-id="189448408253-bas8o55hbj2kuibpunnas7ute5dtsgmc.apps.googleusercontent.com"
-        redirect-url="http://localhost"
-        response-type="token"
-        scope="openid">
-</oauth2> -->
-<div id="content-header"> 
-	<div id="content-header-body">
-		<div class="row">
-			<h1>Welcome <span id="content-header-user">, Super Admin</span></h1>
-		</div>
-		<div class="row">
-			<div id="icon"></div> <p>Paxport UK</p>
-		</div>
-	</div>
-</div>
-<div id="content-body">
-	<div class="kpi-container">
-		<div class="row">
-			<h2>KPI</h2>
-		</div>
-		<div class="row">
-			<div ng-repeat="view in kpis">
-				<div class="col col-sm-4">
-			    	<ng-include src="view.url"></ng-include>
-		    	</div>
+<div id="dashboard">
+	<div id="content-header"> 
+		<div id="content-header-body">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1>Welcome <span id="content-header-user">, Super Admin</span></h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div id="icon"></div> <p>Paxport UK</p>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<divider></divider>
-	</div>
-	<div class="row">
-		<div class="col col-sm-8">
-			<ng-include src="'http://localhost:8000/components/dashboard/partials/dashboard-mailchimp.html'"></ng-include>
+	<div id="content-body">
+		<div class="kpi-container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2>KPI</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div ng-repeat="view in kpis">
+					<div class="col col-sm-4">
+				    	<ng-include src="view.url"></ng-include>
+			    	</div>
+				</div>
+			</div>
 		</div>
-		<div class="col col-sm-4">
-			<ng-include src="'http://localhost:8000/components/dashboard/partials/dashboard-serverstatus.html'"></ng-include>
+		<div class="row">
+			<div class="col-sm-12">
+				<divider></divider>
+			</div>
+		</div>
+		<div class="row" id="dash-btm">
+			<div class="col col-sm-9">
+				<ng-include src="'http://localhost:8000/components/dashboard/partials/dashboard-mailchimp.html'"></ng-include>
+			</div>
+			<div class="col col-sm-3">
+				<ng-include src="'http://localhost:8000/components/dashboard/partials/dashboard-serverstatus.html'"></ng-include>
+			</div>
 		</div>
 	</div>
 </div>

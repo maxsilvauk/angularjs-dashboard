@@ -1,10 +1,10 @@
-// Define module
+// Define module.
 var paxportApp = angular.module('paxportal', ['ngRoute','shared','dashboard','reporting','bookings','jira']);
 
-// Constants
-paxportApp.constant('API_URL','http://localhost:3000/posts/');
+// Constants.
+paxportApp.constant('API_URL','http://localhost:3000');
 
-// $rootScope stuff
+// $rootScope stuff.
 paxportApp.run(
     function($rootScope) {
         $rootScope.startDate = '';
@@ -13,7 +13,16 @@ paxportApp.run(
 );
 
 /**
- * divider directive
+ * loading icon.
+ */
+paxportApp.directive('loadingIcon', function() {
+    return {
+        template: '<div class="fading-circle"><div class="sk-circle1 sk-circle"></div><div class="sk-circle2 sk-circle"></div><div class="sk-circle3 sk-circle"></div><div class="sk-circle4 sk-circle"></div><div class="sk-circle5 sk-circle"></div><div class="sk-circle6 sk-circle"></div><div class="sk-circle7 sk-circle"></div><div class="sk-circle8 sk-circle"></div><div class="sk-circle9 sk-circle"></div><div class="sk-circle10 sk-circle"></div><div class="sk-circle11 sk-circle"></div><div class="sk-circle12 sk-circle"></div></div>'
+    };  
+});
+
+/**
+ * divider directive.
  */
 paxportApp.directive('divider', function() {
     return {
@@ -34,9 +43,8 @@ paxportApp.directive('divider', function() {
     };
 });
 
-
 /**
- * For checking href tags adding preventDefault behaviour directive
+ * For checking href tags adding preventDefault behaviour directive.
  */
 paxportApp.directive('a', function() {
     return {
@@ -70,21 +78,18 @@ paxportApp.directive('showModal', function() {
  * @param $rootScope
  */
 paxportApp.service('filterByDateService', function ($rootScope) {
-    var filterDatesObj = { 
+    var filterByDatesObj = { 
         startDate: '',
         endDate: ''
     };
 
     $rootScope.$watchGroup(['startDate','endDate'], function() {
-        filterDatesObj.startDate = $rootScope.startDate;
-        filterDatesObj.endDate = $rootScope.endDate;
-
-        // We need to call the api and handle the rest in here.
-        //console.log('filterDatesObj', filterDatesObj);
+        filterByDatesObj.startDate = $rootScope.startDate;
+        filterByDatesObj.endDate = $rootScope.endDate;
     });
 
     function getData(date) {
-        return filterDatesObj;
+        return filterByDatesObj;
     }
 
     return {
@@ -93,7 +98,7 @@ paxportApp.service('filterByDateService', function ($rootScope) {
 });
 
 /**
- * config function
+ * config function.
  * @param $routeProvider
  */
 paxportApp.config(function($routeProvider) {
@@ -108,7 +113,7 @@ paxportApp.config(function($routeProvider) {
 });
 
 /**
- * run function
+ * run function.
  * @param $rootScope
  */
 paxportApp.run(function($rootScope) {

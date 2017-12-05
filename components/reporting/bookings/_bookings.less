@@ -6,7 +6,7 @@
 					padding:20px 0px 20px;
 
 					#title {
-						 margin-right: 10px;
+						margin-right: 10px;
 						display:inline-block;
 						color: @pp-header-text;
 						font-family: @pp-family-xbold;
@@ -15,17 +15,18 @@
 					.btn { 
 						display:inline-block;
 						background: none;
-					    border: 1px solid #CACACA;
+					    border: 1px solid @pp-module-line-grey;
 					    font-family: @pp-family-bold;
-					    color: #8D8D8D;
+					    color: @pp-body-text;
 					    border-radius: 3px;
 					    padding: 6px 12px;
 					    font-size: 12px;
+					    .transition(all 0.3s ease-out);
 
 					    &:hover, &.selected {
-					    	background: #D13151;
+					    	background: @pp-pink-alt;
 					    	color:white;
-					    	border: 1px solid #D13151;
+					    	border: 1px solid @pp-pink-alt;
 					    }
 
 					    &.selected {
@@ -36,13 +37,29 @@
 			}
 		}
 	}
-}
 
-.module.bookings {
-	.module-header {
-		.row {
-			.col-md-2 {
-				.icon(take-off, svg, 18px, 23px, 18px 0px 14px 18px);
+	#content-body {
+		.kpi-container {
+			margin-top:20px;
+
+			.module {
+				margin-bottom:25px;
+
+				.module-header {
+					h3 {
+						margin-top: 19px;
+					}
+				}
+			}
+		}
+	}
+
+	.module {
+		margin-bottom:25px;
+
+		.module-header {
+			h3 {
+				margin-top: 17px;
 			}
 		}
 	}

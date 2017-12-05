@@ -6,23 +6,24 @@ bookings.constant('PARTIALS_DIR','components/reporting/bookings/partials/');
 /**
  * filterByDate directive
  */
-bookings.directive("filterByDate", ['PARTIALS_DIR', function(PARTIALS_DIR, $rootScope) {
+bookings.directive('filterByDate', ['PARTIALS_DIR', function(PARTIALS_DIR, $rootScope) {
     return {
         controller: function($scope, $rootScope, filterByDateService) {
             $scope.setData = function(startDate, endDate, $event) {
                 $rootScope.startDate = startDate;
                 $rootScope.endDate = endDate;
+                $rootScope.$emit('getKpiList');
+                $rootScope.$emit('getBookings');
                 filterByDateService.getData(startDate, endDate);
-                $rootScope.$emit("getBookings");
-
+                
                 if (!$(event.target).hasClass('selected')) {
-                    $("#filter-by-date .btn").each(
-                        function(i, ele) {
-                            $(ele).removeClass('selected');
+                    $('#filter-by-date .btn').each(
+                        function(i, e) { 
+                            $(e).removeClass('selected');
                         }
                     );
                     $(event.target).addClass('selected');
-                };
+                }
             };
         },
         restrict: 'E',
@@ -47,9 +48,9 @@ bookings.config(function($routeProvider) {
  */
 bookings.factory('bookingsData', function(API_URL, $http, $q, $rootScope) {
     return {
-        getPosts: function() {
+        getBookings: function() {
             return $q.all([
-                $http.get(API_URL+$rootScope.startDate)
+                $http.get(API_URL+'/bookings/'+$rootScope.startDate)
             ]);
         },
         getKpiList: function() {
@@ -65,10 +66,30 @@ bookings.factory('bookingsData', function(API_URL, $http, $q, $rootScope) {
  * @param $scope
  * @param Data
  */
-bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, bookingsData, filterByDateService) {
-    bookingsData.getKpiList().then(function(data) {
-        $scope.kpis = data[0].data;
+bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bookingsData, filterByDateService) {
+
+    function getKpiList() {
+        $scope.loaded = false;
+       
+        bookingsData.getKpiList().then(function(data) {
+            $scope.kpis = data[0].data;
+
+            var timer = function() {
+                $scope.loaded = true;
+            };
+
+            $timeout(timer, 2000);
+
+        }).catch(function() {
+            $('loading-icon').html('<div class="loading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>Request could not be executed!</div>');
+        });
+    }
+
+    $rootScope.$on('getKpiList', function() {
+        getKpiList();
     });
+
+    getKpiList();
 });
 
 /**
@@ -77,14 +98,49 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, bookingsData
  * @param Data
  */
 bookings.controller('bookingsCtrl', function($http, $q, $scope, bookingsData, filterByDateService, $rootScope) {
+
+    $scope.optionBtn = false;
+
+    $('body').click(function() {
+        if ($('.header-options').hasClass('open')) {
+            $('.dropdown-toggle').removeClass('active');
+        }
+    });
+
     function getBookings() {
-        bookingsData.getPosts().then(function(data) {
-            $scope.posts = data[0];
-            $('#data').empty().append('<pre>'+JSON.stringify($scope.posts, null,"    ")+'</pre>');
+        $scope.loaded = false;
+
+        bookingsData.getBookings().then(function(data) {
+
+            $scope.bookings = data[0].data;
+
+            angular.forEach(data[0].data, function(value, key) {
+
+                var passengers = { adult: 0, infant: 0 };
+
+                angular.forEach(value.attributes.paxDetails, function(value, key) {
+                    switch(value.type) {
+                        case 'ADULT':
+                            passengers.adult++;
+                        break;
+                        case 'INFANT':
+                            passengers.infant++;
+                        break;
+                    }
+                });
+
+                value.attributes.passengers = passengers;
+            });
+
+            $scope.bookings = data[0].data;
+
+            //$scope.loaded = true;
+        }).catch(function() {
+
         });
     }
 
-    $rootScope.$on("getBookings", function() {
+    $rootScope.$on('getBookings', function() {
         getBookings();
     });
 

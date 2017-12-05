@@ -1,34 +1,30 @@
-<div class="module bookings" ng-controller="bookingsKpiCtrl">
+<div class="module kpi bookings" ng-controller="bookingsKpiCtrl" ng-class="{'loadingKpi' : !loaded }">
+	<loading-icon></loading-icon>
 	<div class="module-header">
-		<div class="row">
-			<div class="col-md-2">
-				<div class="icon"></div>
-			</div>
-			<div class="col-md-7">
-				<h3>{{ kpis.header }}</h3>
-			</div>
-			<div class="col-md-3 total float-right">
-				<span class="bold">{{ kpis.total }}</span> Total
-			</div>		
+		<div class="header-icon">
+			<i class="fa fa-book" aria-hidden="true"></i>
 		</div>
+		<div class="header-title">
+			<h3>{{ kpis.header }}</h3>
+		</div>
+		<div class="total">
+			<span class="bold">{{ kpis.total }}</span> Total
+		</div>		
 	</div>
 	<div class="module-body">
-		<div class="row">
-			<ul ng-repeat="(key,val) in kpis.data" class="indicator">
-				<li class="kpi-data {{ key }}">
-					<h4 class="bold">{{ val }}</h4>
-					<br/>
-					<span>{{ key }}</span>
-				</li>
-			</ul>
-		</div>
+		<ul ng-repeat="(key,val) in kpis.data" class="indicator">
+			<li class="kpi-data {{ key }}">
+				<h4 class="bold">{{ val }}</h4>
+				<br/>
+				<span>{{ key }}</span>
+			</li>
+		</ul>
 	</div>
 	<div class="module-footer">
-		<div class="row">
-			<show-modal></show-modal>
-		</div>
+		<show-modal></show-modal>
 	</div>
 </div>
+
 
 <!-- Change KPI Modal -->
 <div class="modal fade modal-center" id="change-kpi-modal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -38,7 +34,7 @@
       	<div class="modal-icon"></div>
         <h5 class="modal-title" id="exampleModalLabel">Update KPI</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        	<span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
