@@ -20,6 +20,31 @@ body {
 		font-family: @pp-family-xbold;
 	}
 
+	/* Facebook Loader Stuff.
+
+	@keyframes placeHolderShimmer {
+		0%{ background-position: -468px 0; }
+		100%{ background-position: 468px 0; }
+	}
+
+	.animated-background {
+		animation-duration: 1.5s;
+		animation-fill-mode: forwards;
+		animation-iteration-count: infinite;
+		animation-timing-function: linear;
+		animation-name: placeHolderShimmer;
+		background: #f6f7f8;
+		background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+		background-size: 800px 104px;
+		height: 96px;
+		position: relative;
+	}
+
+	.background-masker {
+		background: #fff;
+		position: absolute;
+	}*/
+
 	.loadingKpi {
 		-webkit-animation-duration: 1s; 
     	animation-duration: 1s; 
@@ -83,7 +108,7 @@ body {
 			background: @pp-brand-secondary;
 		}		
 	}
-
+	
 	.btn {
 		.transition(all 0.3s ease-out);
 
