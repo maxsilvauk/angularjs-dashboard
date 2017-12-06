@@ -38,7 +38,7 @@ jira.controller('jiraKpiCtrl', function($scope, $timeout, jiraData) {
             $timeout(timer, 2000);
 
         }).catch(function() {
-            $('loading-icon').html('<div class="loading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>Request could not be executed!</div>');         
+            $('.kpi.jiras loading-icon').html('<div class="loading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>Request could not be executed!</div>');         
         });
 
         $(".change-kpi").click(function() {

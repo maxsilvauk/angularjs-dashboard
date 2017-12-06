@@ -33,17 +33,18 @@
     	<div class="row">
 			<div class="col-sm-12" ng-controller="bookingsCtrl">
 				<div ng-repeat="(key,val) in bookings">
-		            <div class="module">
+		            <div class="module" ng-class="{'loadingKpi' : !loaded }">
+		            	<loading-icon></loading-icon>
 		            	<div class="module-header">
                 			<div class="header-icon">
             					<i class="fa fa-user-circle" aria-hidden="true"></i>
             				</div> 
             				<div class="header-title">
 	            				<h3>{{ val.attributes.paxDetails[0].title }} {{ val.attributes.paxDetails[0].firstName }} {{ val.attributes.paxDetails[0].surname }}
-	            				<button type="button" class="btn ref">{{ val.attributes.bookingid.fab }}</button>
-	        					<button type="button" class="btn ref">{{ val.attributes.bookingid.easyJet }}</button>
-	        					<i class="fa fa-plane" aria-hidden="true" title="Flight"></i>
-	        					<i class="fa fa-check" aria-hidden="true" title="Verified"></i>
+	            					<button type="button" class="btn ref">{{ val.attributes.bookingid.fab }}</button>
+	        						<button type="button" class="btn ref">{{ val.attributes.bookingid.easyJet }}</button>
+	        						<i class="fa fa-plane" aria-hidden="true" title="Flight"></i>
+	        						<i class="fa fa-check" aria-hidden="true" title="Verified"></i>
 	            				</h3>
 	                  		</div>
 	                  		<div class="header-options">

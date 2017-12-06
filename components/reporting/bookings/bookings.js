@@ -12,9 +12,10 @@ bookings.directive('filterByDate', ['PARTIALS_DIR', function(PARTIALS_DIR, $root
             $scope.setData = function(startDate, endDate, $event) {
                 $rootScope.startDate = startDate;
                 $rootScope.endDate = endDate;
-                $rootScope.$emit('getKpiList');
+                
                 $rootScope.$emit('getBookings');
-                filterByDateService.getData(startDate, endDate);
+                //$rootScope.$emit('getKpiList');
+                //filterByDateService.getData(startDate, endDate);
                 
                 if (!$(event.target).hasClass('selected')) {
                     $('#filter-by-date .btn').each(
@@ -35,9 +36,9 @@ bookings.directive('filterByDate', ['PARTIALS_DIR', function(PARTIALS_DIR, $root
  * Bookings config
  * @param $routeProvider
  */
-bookings.config(function($routeProvider) {
+bookings.config(function(PARTIALS_DIR, $routeProvider) {
 	$routeProvider.when('/bookings', {
-        templateUrl: 'components/reporting/bookings/partials/bookings-main.html'
+        templateUrl: PARTIALS_DIR+'bookings-main.html'
     });
 });
 
@@ -67,7 +68,6 @@ bookings.factory('bookingsData', function(API_URL, $http, $q, $rootScope) {
  * @param Data
  */
 bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bookingsData, filterByDateService) {
-
     function getKpiList() {
         $scope.loaded = false;
        
@@ -75,13 +75,13 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
             $scope.kpis = data[0].data;
 
             var timer = function() {
-                $scope.loaded = true;
+                //$scope.loaded = true;
             };
 
             $timeout(timer, 2000);
 
         }).catch(function() {
-            $('loading-icon').html('<div class="loading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>Request could not be executed!</div>');
+            $('.kpi.bookings loading-icon').html('<div class="loading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>Request could not be executed!</div>');
         });
     }
 
@@ -100,6 +100,7 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
 bookings.controller('bookingsCtrl', function($http, $q, $scope, bookingsData, filterByDateService, $rootScope) {
 
     $scope.optionBtn = false;
+    $scope.loaded = false;
 
     $('body').click(function() {
         if ($('.header-options').hasClass('open')) {
@@ -112,12 +113,9 @@ bookings.controller('bookingsCtrl', function($http, $q, $scope, bookingsData, fi
 
         bookingsData.getBookings().then(function(data) {
 
-            $scope.bookings = data[0].data;
-
             angular.forEach(data[0].data, function(value, key) {
 
                 var passengers = { adult: 0, infant: 0 };
-
                 angular.forEach(value.attributes.paxDetails, function(value, key) {
                     switch(value.type) {
                         case 'ADULT':
@@ -128,15 +126,19 @@ bookings.controller('bookingsCtrl', function($http, $q, $scope, bookingsData, fi
                         break;
                     }
                 });
-
                 value.attributes.passengers = passengers;
             });
 
             $scope.bookings = data[0].data;
 
-            //$scope.loaded = true;
-        }).catch(function() {
+            var timer = function() {
+                //$scope.loaded = true;
+            };
 
+            $timeout(timer, 2000);
+
+        }).catch(function() {
+            //$('').html('<div class="loading-error"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><br/>Request could not be executed!</div>');
         });
     }
 
