@@ -4,37 +4,53 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<h1>Bookings</h1>
+					<!-- Directive filter-by-date -->
 					<filter-by-date></filter-by-date>
+					<!-- /Directive filter-by-date -->
 				</div>
 			</div>
 		</div>
 	</div>
 	<div id="content-body">
-		<div class="kpi-container">
+		<div class="kpis-container">
 			<div class="row">
 				<div class="col col-sm-6">
+					<!-- Include booking-kpi -->
 			    	<ng-include src="'/components/reporting/bookings/partials/bookings-kpi.html'"></ng-include>
+			    	<!-- /Include booking-kpi -->
+		    	</div>
+		    	<div class="col col-sm-6">
+		    		<!-- Include booking-kpi -->
+			    	<ng-include src="'/components/reporting/bookings/partials/bookings-kpi.html'"></ng-include>
+			    	<!-- /Include booking-kpi -->
 		    	</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
+				<!-- Directive divider -->
 				<divider></divider>
+				<!-- /Directive divider -->
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-	    		<div id="export-options" class="text-right">
-	    			<a href="#" class="csv"></a>
-	    			<a href="#" class="pdf"></a>
+	    		<div id="export-options">
+	    			<a href="#" class="csv fadeOut"></a>
+	    			<a href="#" class="pdf fadeOut"></a>
 	    		</div>
 	    	</div>
     	</div>
     	<div class="row">
 			<div class="col-sm-12" ng-controller="bookingsCtrl">
+				<!-- Partial booking-summary -->
+				<div ng-include="'components/reporting/bookings/partials/bookings-summary.html'"></div>
+				<!-- /Partial booking-summary -->
 				<div ng-repeat="(key,val) in bookings">
-		            <div class="module" ng-class="{'loadingKpi' : !loaded }">
+		            <div class="module" ng-class="{'loader' : !loaded }">
+		            	<!-- Directive loading-icon -->
 		            	<loading-icon></loading-icon>
+		            	<!-- /Directive loading-icon -->
 		            	<div class="module-header">
                 			<div class="header-icon">
             					<i class="fa fa-user-circle" aria-hidden="true"></i>
@@ -43,14 +59,18 @@
 	            				<h3>{{ val.attributes.paxDetails[0].title }} {{ val.attributes.paxDetails[0].firstName }} {{ val.attributes.paxDetails[0].surname }}
 	            					<button type="button" class="btn ref">{{ val.attributes.bookingid.fab }}</button>
 	        						<button type="button" class="btn ref">{{ val.attributes.bookingid.easyJet }}</button>
-	        						<i class="fa fa-plane" aria-hidden="true" title="Flight"></i>
-	        						<i class="fa fa-check" aria-hidden="true" title="Verified"></i>
+	        						<span class="fa-stack" style="margin-left:20px">
+	        							<i class="fa fa-plane" aria-hidden="true" title="Flight"></i>
+        							</span>
+        							<span class="fa-stack">
+	        							<i class="fa fa-check" aria-hidden="true" title="Verified"></i>
+	        						</span>
 	            				</h3>
 	                  		</div>
 	                  		<div class="header-options">
                 				<i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" aria-hidden="true" aria-expanded="false" ng-class="optionBtn ? 'active' : ''" ng-click="optionBtn = !optionBtn"></i>
                     			<ul class="dropdown-menu">
-                    				<li><a href="#"><i class="fa fa-book" aria-hidden="true"></i> View Booking Summary</a></li>
+                    				<li><a href="#" ng-click="showBookingSummary($index+1)"><i class="fa fa-book" aria-hidden="true"></i> View Booking Summary</a></li>
                     				<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i> View Logs</a></li>
                     				<li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> View Timings</a></li>
                     				<li><a href="#"><i class="fa fa-times" aria-hidden="true"></i> Set Failed</a></li>
@@ -60,7 +80,7 @@
 	                  		</div>
 		            	</div>
 		       			<div class="module-body">
-		                	<table class="table table-striped table-bordered table-list">
+		                	<table class="table table-striped table-responsive">
 		                  		<tbody>
 		                          	<tr>
 		                            	<td class="table-label">Session ID:</td>

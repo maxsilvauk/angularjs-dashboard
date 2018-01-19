@@ -19,6 +19,10 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+    <script src="bower_components/jsPDF/dist/jspdf.debug.js"></script>
+    <script src="bower_components/angular-save-html-to-pdf/dist/saveHtmlToPdf.js"></script>
+    <!-- /JS from Bower Components -->
 
     <!-- Main App JS -->
     <script src="app.js"></script>
@@ -29,15 +33,22 @@
     <script src="components/reporting/supplier-status/supplier-status.js"></script>
     <script src="components/suppliers/suppliers.js"></script>
     <script src="components/jira/jira.js"></script>
+    <!-- /Main App JS -->
   </head>
   <body>
     <div class="site-container no-gutter">
+        <!-- Partial nav -->
         <div ng-include="'components/shared/partials/nav.html'"></div>
+        <!-- /Partial nav -->
         <div id="right">
+            <!-- Partial header -->
             <div ng-include="'components/shared/partials/header.html'"></div>
+            <!-- /Partial header -->
             <div id="content" ng-view></div>
         </div>
+        <!-- Partial footer -->
         <div ng-include="'components/shared/partials/footer.html'"></div>
+        <!-- /Partial footer -->
     </div>
   </body>
 </html>

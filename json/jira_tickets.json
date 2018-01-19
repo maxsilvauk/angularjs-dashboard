@@ -2,8 +2,8 @@
 	"header": "Jiras",
 	"total": 49,
 	"data": {
-		"major": 24,
-		"medium": 15,
-		"minor": 10
+		"Major": 24,
+		"Medium": 15,
+		"Minor": 10
 	}
 }

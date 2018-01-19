@@ -1,8 +1,8 @@
-<div class="module kpi jiras" ng-controller="jiraKpiCtrl" ng-class="{'loadingKpi' : !loaded }">
+<div class="module kpi jiras" ng-controller="jiraKpiCtrl" ng-class="{'loader' : !loaded }">
 	<loading-icon></loading-icon>
 	<div class="module-header">
 		<div class="header-icon">
-			<i class="fa fa-list-ol" aria-hidden="true"></i>
+			<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 		</div>
 		<div class="header-title">
 			<h3>{{ kpis.header }}</h3>
@@ -12,13 +12,16 @@
 		</div>		
 	</div>
 	<div class="module-body">
-		<ul ng-repeat="(key,val) in kpis.data" class="indicator">
-			<li class="{{ key }}">
-				<h4 class="bold">{{ val }}</h4>
-				<br/>
-				<span>{{ key }}</span>
-			</li>
-		</ul>
+		<div class="row module-kpi-container">
+			<div class="indicator" ng-repeat="(key,val) in kpis.data">
+				<div class="col-sm-4 kpi-data {{ key }}">
+					<div class="status attempts"></div>
+					<h4 class="bold">{{ val }}</h4>
+					<br/>
+					<span>{{ key }}</span>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="module-footer">
 		<show-modal></show-modal>

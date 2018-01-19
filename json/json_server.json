@@ -22,6 +22,20 @@
              "dob": "1984-12-12 00:00:00"
           },
           {
+             "type": "ADULT",
+             "title": "Mrs",
+             "firstName": "Claire",
+             "surname": "Doyle",
+             "dob": "1984-12-12 00:00:00"
+          },
+          {
+             "type": "ADULT",
+             "title": "Mrs",
+             "firstName": "Claire",
+             "surname": "Doyle",
+             "dob": "1984-12-12 00:00:00"
+          },
+          {
              "type": "INFANT",
              "title": "Master",
              "firstName": "Bilbo",
@@ -117,6 +131,285 @@
           "cardHolder": "Stace Jones",
           "cardNumber": "7422"
         }
+      }
+    }
+  ],
+  "booking":[
+    {
+      "type":"bookings",
+      "id":"1",
+      "attributes": {
+        "references": {
+          "sessionid":"292359295",
+          "basketid":"2342340234",
+          "bookingid":{
+            "fab":"sdofjsdf",
+            "easyJet":"dfgdfg"
+          },
+          "syndicator":"loveholidays"
+        },
+        "paxDetails": [
+          {
+            "type": "ADULT",
+            "title": "Mrs",
+            "firstName": "Claire",
+            "surname": "Doyle",
+            "dob": "1984-12-12 00:00:00",
+            "insurer":"Third Party Insurance",
+            "nationality":"Great Britain",
+            "foidType":"Passport",
+            "foidNumber":"2345erth323"
+          },
+          {
+            "type": "ADULT",
+            "title": "Mrs",
+            "firstName": "Claire",
+            "surname": "Doyle",
+            "dob": "1984-12-12 00:00:00",
+            "insurer":"Third Party Insurance",
+            "nationality":"Great Britain",
+            "foidType":"Passport",
+            "foidNumber":"2345erth323"
+          },
+          {
+            "type": "ADULT",
+            "title": "Mrs",
+            "firstName": "Claire",
+            "surname": "Doyle",
+            "dob": "1984-12-12 00:00:00",
+            "insurer":"Third Party Insurance",
+            "nationality":"Great Britain",
+            "foidType":"Passport",
+            "foidNumber":"2345erth323"
+          },
+          {
+            "type": "INFANT",
+            "title": "INF",
+            "firstName": "Bilbo",
+            "surname": "Tester",
+            "dob": "2016-02-02 00:00:00",
+            "insurer":"Third Party Insurance",
+            "nationality":"Great Britain",
+            "foidType":"Passport",
+            "foidNumber":"2345erth323"
+          }
+        ],
+        "paymentDetails": {
+          "cardHolder": "Claire Doyle",
+          "cardNumber": "1234"
+        },
+        "flightDetails": {
+          "party": "2,1,1:5",
+          "product": "FLIGHT",
+          "systemData": {
+            "created": "2017-10-20 07:57:57",
+            "component": "1"
+          },
+          "marketingCarrier": "ENT",
+          "legs": [
+              {
+                "duration": 0,
+                "segments": [
+                    {
+                      "designation": "MNO123",
+                      "carrier": "ENT",
+                      "class": "ECONOMY",
+                      "origin": "STN",
+                      "start": "2017-10-11 10:00:00",
+                      "destination": "NAP",
+                      "end": "2017-10-11 12:00:00",
+                      "stops": 0
+                    }
+                ]
+              },
+              {
+                "duration": 0,
+                "segments": [
+                    {
+                      "designation": "MNO234",
+                      "carrier": "ENT",
+                      "class": "ECONOMY",
+                      "origin": "NAP",
+                      "start": "2017-11-03 14:00:00",
+                      "destination": "STN",
+                      "end": "2017-11-03 16:00:00",
+                      "stops": 0
+                    }
+                ]
+              }
+          ]
+        },
+        "costDetails": [
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 14.0
+            },
+            "quantity": 2,
+            "description": "Adult Price",
+            "supplier":"AER"
+          },
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 14.0
+            },
+            "quantity": 2,
+            "description": "Adult Taxes",
+            "supplier":"AER"
+          },
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 14.0
+            },
+            "quantity": 2,
+            "description": "Check-in Bags (15kg 1 x piece)",
+            "supplier":"AER"
+          },
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 0.0
+            },
+            "quantity": 1,
+            "description": "Payment Card Charge",
+            "supplier":"AER"
+          }
+        ]
+      }
+    },
+    {
+      "type":"bookings",
+      "id":"2",
+      "attributes": {
+        "references": {
+          "sessionid":"292359295",
+          "basketid":"2342340234",
+          "bookingid":{
+            "fab":"sdofjsdf",
+            "easyJet":"dfgdfg"
+          },
+          "syndicator":"loveholidays"
+        },
+        "paxDetails": [
+          {
+              "type": "ADULT",
+              "title": "Mr",
+              "firstName": "Bob",
+              "surname": "David",
+              "dob": "1984-12-12 00:00:00",
+              "insurer":"Third Party Insurance",
+              "nationality":"Great Britain",
+              "foidType":"Passport",
+              "foidNumber":"2345erth323"
+            },
+            {
+              "type": "INFANT",
+              "title": "INF",
+              "firstName": "Bilbo",
+              "surname": "Tester",
+              "dob": "2016-02-02 00:00:00",
+              "insurer":"Third Party Insurance",
+              "nationality":"Great Britain",
+              "foidType":"Passport",
+              "foidNumber":"2345erth323"
+            },
+            {
+              "type": "INFANT",
+              "title": "INF",
+              "firstName": "Bilbo",
+              "surname": "Tester",
+              "dob": "2016-02-02 00:00:00",
+              "insurer":"Third Party Insurance",
+              "nationality":"Great Britain",
+              "foidType":"Passport",
+              "foidNumber":"2345erth323"
+            }
+        ],
+        "paymentDetails": {
+          "cardHolder": "Bob David",
+          "cardNumber": "1234"
+        },
+        "flightDetails": {
+          "party": "2,1,1:5",
+          "product": "FLIGHT",
+          "systemData": {
+            "created": "2017-10-20 07:57:57",
+            "component": "1"
+          },
+          "marketingCarrier": "ENT",
+          "legs": [
+              {
+                "duration": 0,
+                "segments": [
+                    {
+                      "designation": "MNO123",
+                      "carrier": "ENT",
+                      "class": "ECONOMY",
+                      "origin": "STN",
+                      "start": "2017-10-11 10:00:00",
+                      "destination": "NAP",
+                      "end": "2017-10-11 12:00:00",
+                      "stops": 0
+                    }
+                ]
+              },
+              {
+                "duration": 0,
+                "segments": [
+                    {
+                      "designation": "MNO234",
+                      "carrier": "ENT",
+                      "class": "ECONOMY",
+                      "origin": "NAP",
+                      "start": "2017-11-03 14:00:00",
+                      "destination": "STN",
+                      "end": "2017-11-03 16:00:00",
+                      "stops": 0
+                    }
+                ]
+              }
+          ]
+        },
+        "costDetails": [
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 14.0
+            },
+            "quantity": 2,
+            "description": "Adult Price",
+            "supplier":"AER"
+          },
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 14.0
+            },
+            "quantity": 2,
+            "description": "Adult Taxes",
+            "supplier":"AER"
+          },
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 14.0
+            },
+            "quantity": 2,
+            "description": "Check-in Bags (15kg 1 x piece)",
+            "supplier":"AER"
+          },
+          {
+            "price": {
+              "currencyCode": "GBP",
+              "value": 0.0
+            },
+            "quantity": 1,
+            "description": "Payment Card Charge",
+            "supplier":"AER"
+          }
+        ]
       }
     }
   ]

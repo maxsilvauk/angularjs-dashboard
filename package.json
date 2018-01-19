@@ -3,7 +3,7 @@
   "author": "Paxport Ltd",
   "version": "1.0.0",
   "license": "ISC",
-  "description": "Porta application for paxportal microservices.",
+  "description": "Portal application for paxportal microservices.",
   "repository": {
     "type": "git",
     "url": "https://maxsilvauk@bitbucket.org/maxsilvauk/paxportal.git"

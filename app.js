@@ -1,7 +1,7 @@
-// Define module.
-var paxportApp = angular.module('paxportal', ['ngRoute','shared','dashboard','reporting','bookings','jira']);
+// define module.
+var paxportApp = angular.module('paxportal', ['ngRoute','ngAnimate','ui.bootstrap','htmlToPdfSave','shared','dashboard','reporting','bookings','jira']);
 
-// Constants.
+// constants.
 paxportApp.constant('API_URL','http://localhost:3000');
 
 // $rootScope stuff.
@@ -17,9 +17,24 @@ paxportApp.run(
  */
 paxportApp.directive('loadingIcon', function() {
     return {
-        template: '<div class="fading-circle"><div class="sk-circle1 sk-circle"></div><div class="sk-circle2 sk-circle"></div><div class="sk-circle3 sk-circle"></div><div class="sk-circle4 sk-circle"></div><div class="sk-circle5 sk-circle"></div><div class="sk-circle6 sk-circle"></div><div class="sk-circle7 sk-circle"></div><div class="sk-circle8 sk-circle"></div><div class="sk-circle9 sk-circle"></div><div class="sk-circle10 sk-circle"></div><div class="sk-circle11 sk-circle"></div><div class="sk-circle12 sk-circle"></div></div>'
-    };  
+        template: '<div class="spinner"></div>'
+    }  
 });
+
+// paxportApp.directive('exportTable', function()) {
+//     return {
+//         restrict: 'C',
+//         link: function(scope, elem, attrs) {
+//             $scope.$on('export-pdf', function(e, d){
+//                 elm.tableExport({type:'pdf', escape:false});
+//             });
+            
+//             $scope.$on('export-excel', function(e, d){
+//                    elm.tableExport({type:'excel', escape:false});
+//             });
+//         }
+//     }
+// });
 
 /**
  * divider directive.
@@ -28,15 +43,23 @@ paxportApp.directive('divider', function() {
     return {
         template: '<div class="pull-up"><a href="#"><i class="fa fa-chevron-down" aria-hidden="true"></i></a></div>',
             controller: function () {
+            $('.pull-up a').hover(function(event) {
+                if ($('.pull-up i').hasClass('fa-chevron-down')) {
+                    $('.pull-up i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+                } else {
+                    $('.pull-up i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+                }
+            });
+
             $('.pull-up a').click(function(event) {
                 event.preventDefault();
                 $('.pull-up').toggleClass('closed');
-                if ($('.pull-up i').hasClass('fa-chevron-down')) {
-                    $('.kpi-container').fadeOut(200,'linear');
-                    $('.pull-up i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
-                } else {
-                    $('.kpi-container').fadeIn(200,'linear');
+                if ($('.pull-up').hasClass('closed')) {
+                    $('.kpis-container').fadeOut(200,'linear');
                     $('.pull-up i').removeClass('fa-chevron-up').addClass('fa-chevron-down');
+                } else {
+                    $('.kpis-container').fadeIn(200,'linear');
+                    $('.pull-up i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
                 }
             });
         }
@@ -64,9 +87,9 @@ paxportApp.directive('a', function() {
  */
 paxportApp.directive('showModal', function() {
     return {
-        template: '<div class="change-kpi"></div>',
+        template: '<div class="change-kpi"><i class="fa fa-cog fadeOut" aria-hidden="true" title="Update KPI"></i></div>',
         controller: function () {
-            $(".change-kpi").click(function() {
+            $('.change-kpi').click(function() {
                 $('#change-kpi-modal').modal('show');
             });
         }
@@ -98,6 +121,57 @@ paxportApp.service('filterByDateService', function ($rootScope) {
 });
 
 /**
+ * countPassengersService
+ * @param paxDetails
+ */
+paxportApp.service('countPassengersService', function () {
+    function getData(paxDetails) {
+        var passengers = { 
+            adult: 0, 
+            infant: 0
+        };
+
+        angular.forEach(paxDetails, function(value, key) {
+            switch(value.type) {
+                case 'ADULT':
+                    passengers.adult++;
+                break;
+                case 'INFANT':
+                    passengers.infant++;
+                break;
+            }
+        });
+        return passengers;
+    }
+
+    return {
+        getData: getData
+    };
+});
+
+/**
+ * showOverlayItemService
+ * @param 
+ */
+paxportApp.service('itemService', function () {
+    function showItem(itemName) {
+        $('body').css('overflow-y','hidden');
+        $('#'+itemName).addClass('active');
+        $('#'+itemName).css('overflow','scroll').css('overflow-x','hidden');
+    }
+
+    function closeItem(itemName) {
+        $('body').css('overflow-y','visible');
+        $('#'+itemName).removeClass('active');
+    }
+
+    return {
+        showItem: showItem,
+        closeItem: closeItem
+    };
+});
+
+/**
  * config function.
  * @param $routeProvider
  */
@@ -106,6 +180,10 @@ paxportApp.config(function($routeProvider) {
     .when('/dashboard', {
         templateUrl: 'components/dashboard/dashboard-partial/dashboard-partial.html',
         controller: 'dashboardCtrl'
+    })
+    .when('/booking/1', {
+        templateUrl: 'components/dashboard/dashboard-partial/dashboard-partial.html',
+        controller: 'bookingsCtrl'
     })
     .otherwise({
         redirect: '/'

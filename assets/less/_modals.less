@@ -42,8 +42,17 @@
 			font-family: @pp-family-xbold;
 		}
 
-		.close {
+		button.close {
 			display:inline-block;
+			.opacity(1);
+			color:#FBFBFB;
+			margin-top:2px;
+			font-weight:bold;
+			.transition(all 0.5s ease-out);
+
+			&:hover {
+				.opacity(0.5);
+			}
 		}	
 	}
 

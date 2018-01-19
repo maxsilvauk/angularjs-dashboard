@@ -5,6 +5,7 @@ dashboard.constant('PARTIALS_DIR','components/dashboard/partials/');
 
 /**
  * Dashboard config
+ * @param PARTIALS_DIR
  * @param $routeProvider
  */
 dashboard.config(function(PARTIALS_DIR, $routeProvider) {
@@ -34,11 +35,23 @@ dashboard.factory('dashboardData', function($http, $q) {
  * @param $http
  * @param $q
  * @param $scope
- * @param Data
+ * @param dashboardData,
+ * @param filteByDateService,
+ * @param $timeout
  */
-dashboard.controller('dashboardCtrl', function($http, $q, $scope, dashboardData, filterByDateService) {
+dashboard.controller('dashboardCtrl', function($http, $q, $scope, dashboardData, filterByDateService, $timeout) {
+    $scope.loaded = false;
+    
     // Get KPI List.
     dashboardData.getKpiList().then(function(data) {
         $scope.kpis = data[0].data.kpis;
     });
+
+    // Loading functionality (Requires an upate this is a prototype fix.)
+    var timer = function() {
+        $scope.loaded = true;
+    };
+
+    $timeout(timer, 2000);
+    // End loading functionality
 });

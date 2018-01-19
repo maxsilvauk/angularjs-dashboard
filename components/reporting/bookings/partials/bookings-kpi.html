@@ -1,8 +1,10 @@
-<div class="module kpi bookings" ng-controller="bookingsKpiCtrl" ng-class="{'loadingKpi' : !loaded }">
+<div class="module kpi bookings" ng-controller="bookingsKpiCtrl" ng-class="{'loader' : !loaded }">
+	<!-- Directive loading-icon -->
 	<loading-icon></loading-icon>
+	<!-- /Directive loading-icon -->
 	<div class="module-header">
 		<div class="header-icon">
-			<i class="fa fa-book" aria-hidden="true"></i>
+			<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 		</div>
 		<div class="header-title">
 			<h3>{{ kpis.header }}</h3>
@@ -12,16 +14,21 @@
 		</div>		
 	</div>
 	<div class="module-body">
-		<ul ng-repeat="(key,val) in kpis.data" class="indicator">
-			<li class="kpi-data {{ key }}">
-				<h4 class="bold">{{ val }}</h4>
-				<br/>
-				<span>{{ key }}</span>
-			</li>
-		</ul>
+		<div class="row module-kpi-container">
+			<div class="indicator" ng-repeat="(key,val) in kpis.data">
+				<div class="col-sm-4 kpi-data {{ key }}">
+					<div class="status attempts"></div>
+					<h4 class="bold">{{ val }}</h4>
+					<br/>
+					<span>{{ key }}</span>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div class="module-footer">
+		<!-- Directive show-modal -->
 		<show-modal></show-modal>
+		<!-- /Directive show-modal -->
 	</div>
 </div>
 
@@ -34,8 +41,8 @@
       	<div class="modal-icon"></div>
         <h5 class="modal-title" id="exampleModalLabel">Update KPI</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        	<span aria-hidden="true">&times;</span>
-        </button>
+	    	<span aria-hidden="true">&times;</span>
+	    </button>
       </div>
       <div class="modal-body">
         <form>
@@ -53,7 +60,9 @@
       	</form>
       </div>
       <div class="modal-footer">
-      	<button type="button" class="btn btn-primary">Update</button>
+      	<button type="button" class="btn btn-primary">
+      		<i class="fa fa-repeat" aria-hidden="true" title="Update"></i> Update
+      	</button>
       </div>
     </div>
   </div>

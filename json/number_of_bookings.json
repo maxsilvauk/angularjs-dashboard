@@ -2,9 +2,8 @@
 	"header": "Bookings",	
 	"total": 730,	
 	"data": {
-		"attempts": 240,
-		"success": 320,
-		"pending": 121,
-		"failed": 49
+		"Success": 320,
+		"Pending": 121,
+		"Failed": 49
 	}
 }

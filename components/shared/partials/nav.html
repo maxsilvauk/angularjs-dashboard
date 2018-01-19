@@ -1,5 +1,4 @@
 <nav class="site-nav col-lg-2 col-md-3 col-sm-2 col-xs-1" ng-controller="navCtrl">
-<!--<nav class="site-nav col-lg-2 col-md-3 col-sm-2 col-xs-1" ng-controller="navCtrl">-->
     <div id="logo-container">
         <div id="logo"></div>
     </div>
@@ -17,7 +16,7 @@
             </a>
         </li>
         <li>
-            <a ng-class="{ active: isActive('/bookings')}" href="#!bookings">
+            <a ng-class="{ active: isActive('/bookings')}" id="bookingsLink" href="#!bookings" ng-click="bookingsLink();">
                 <i class="fa fa-book" aria-hidden="true"></i> 
                 <span>Bookings</span>
             </a>
@@ -54,6 +53,6 @@
         </li>
     </ul>
     <div id="nav-toggle">
-        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+        <i class="fa fa-chevron-circle-left" aria-hidden="true" ng-click="navToggle();"></i>
     </div>
 </nav>
