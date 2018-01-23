@@ -1,8 +1,10 @@
-<div id="booking-summary" class="overlay">
+<div id="booking-summary" class="overlay" ng-controller="bookingsSummaryCtrl">
 	<div class="row">
 		<div class="col-sm-6">
     		<div class="item-nav">
-    			<i class="fa fa-close fadeOut" aria-hidden="true" ng-click="backToBookings();"></i>
+                <a href="javascript:void(0);" ng-click="backToBookings();">
+        			<i class="fa fa-close fadeOut" aria-hidden="true"></i>
+                </a>
     		</div>
     	</div>		
 		<div class="col-sm-6">

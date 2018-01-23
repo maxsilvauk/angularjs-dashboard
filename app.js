@@ -154,7 +154,8 @@ paxportApp.service('countPassengersService', function () {
  * @param 
  */
 paxportApp.service('itemService', function () {
-    function showItem(itemName) {
+
+    function showItem(itemName, itemId) {
         $('body').css('overflow-y','hidden');
         $('#'+itemName).addClass('active');
         $('#'+itemName).css('overflow','scroll').css('overflow-x','hidden');

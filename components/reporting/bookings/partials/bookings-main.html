@@ -43,10 +43,11 @@
     	</div>
     	<div class="row">
 			<div class="col-sm-12" ng-controller="bookingsCtrl">
+				{{ showBookingSummary }}
 				<!-- Partial booking-summary -->
 				<div ng-include="'components/reporting/bookings/partials/bookings-summary.html'"></div>
 				<!-- /Partial booking-summary -->
-				<div ng-repeat="(key,val) in bookings">
+				<div ng-repeat="(key,val) in bookings" >
 		            <div class="module" ng-class="{'loader' : !loaded }">
 		            	<!-- Directive loading-icon -->
 		            	<loading-icon></loading-icon>
@@ -70,7 +71,7 @@
 	                  		<div class="header-options">
                 				<i class="fa fa-bars dropdown-toggle" data-toggle="dropdown" aria-hidden="true" aria-expanded="false" ng-class="optionBtn ? 'active' : ''" ng-click="optionBtn = !optionBtn"></i>
                     			<ul class="dropdown-menu">
-                    				<li><a href="#" ng-click="showBookingSummary($index+1)"><i class="fa fa-book" aria-hidden="true"></i> View Booking Summary</a></li>
+                    				<li><a href="#" ng-click="getBookingSummary($index+1)"><i class="fa fa-book" aria-hidden="true"></i> View Booking Summary</a></li>
                     				<li><a href="#"><i class="fa fa-list" aria-hidden="true"></i> View Logs</a></li>
                     				<li><a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> View Timings</a></li>
                     				<li><a href="#"><i class="fa fa-times" aria-hidden="true"></i> Set Failed</a></li>
