@@ -154,7 +154,6 @@ paxportApp.service('countPassengersService', function () {
  * @param 
  */
 paxportApp.service('itemService', function () {
-
     function showItem(itemName, itemId) {
         $('body').css('overflow-y','hidden');
         $('#'+itemName).addClass('active');
@@ -170,25 +169,6 @@ paxportApp.service('itemService', function () {
         showItem: showItem,
         closeItem: closeItem
     };
-});
-
-/**
- * config function.
- * @param $routeProvider
- */
-paxportApp.config(function($routeProvider) {
-    $routeProvider
-    .when('/dashboard', {
-        templateUrl: 'components/dashboard/dashboard-partial/dashboard-partial.html',
-        controller: 'dashboardCtrl'
-    })
-    .when('/booking/1', {
-        templateUrl: 'components/dashboard/dashboard-partial/dashboard-partial.html',
-        controller: 'bookingsCtrl'
-    })
-    .otherwise({
-        redirect: '/'
-    });
 });
 
 /**
