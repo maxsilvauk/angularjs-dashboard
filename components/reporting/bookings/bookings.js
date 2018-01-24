@@ -168,7 +168,6 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
             // Add passengers object to data object.
             data[0].data.attributes.passengers = countPassengersService.getData(data[0].data.attributes.paxDetails);
             $scope.bookingSummaryData = data[0].data;
-            console.log($scope.bookingSummaryData);
 
             // Loading functionality (Requires an upate this is a prototype fix.)
             var timer = function() {
@@ -193,12 +192,9 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
      * $scope.backToBookings().
      */
     $scope.backToBookings = function() {
-        console.log('backToBookings');
-        console.log($routeParams.bookingId);
         if ($routeParams.bookingId) {
             $location.path('/bookings');
         } else {
-            console.log('backToBookings else');
             itemService.closeItem('booking-summary');
         }
     };
