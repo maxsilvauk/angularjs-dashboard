@@ -1,10 +1,18 @@
-// define module.
+// Define module.
 var paxportApp = angular.module('paxportal', ['ngRoute','ngLocationUpdate','ngAnimate','ui.bootstrap','htmlToPdfSave','shared','dashboard','reporting','bookings','jira']);
 
-// constants.
+// Constants.
 paxportApp.constant('API_URL','http://localhost:3000');
 
-// $rootScope stuff.
+/**
+ * Config
+ * param $locationProvider
+ */
+paxportApp.config(function($locationProvider) {
+    $locationProvider.html5Mode(true);
+});
+
+// $rootScope Run.
 paxportApp.run(
     function($rootScope) {
         $rootScope.startDate = '';
@@ -13,31 +21,16 @@ paxportApp.run(
 );
 
 /**
- * loading icon.
+ * loadingIcon Directive
  */
 paxportApp.directive('loadingIcon', function() {
     return {
         template: '<div class="spinner"></div>'
-    }  
+    };  
 });
 
-// paxportApp.directive('exportTable', function()) {
-//     return {
-//         restrict: 'C',
-//         link: function(scope, elem, attrs) {
-//             $scope.$on('export-pdf', function(e, d){
-//                 elm.tableExport({type:'pdf', escape:false});
-//             });
-            
-//             $scope.$on('export-excel', function(e, d){
-//                    elm.tableExport({type:'excel', escape:false});
-//             });
-//         }
-//     }
-// });
-
 /**
- * divider directive.
+ * divider Directive.
  */
 paxportApp.directive('divider', function() {
     return {
@@ -83,7 +76,7 @@ paxportApp.directive('a', function() {
 });
 
 /**
- * showModal directive.
+ * showModal Directive.
  */
 paxportApp.directive('showModal', function() {
     return {
@@ -97,7 +90,7 @@ paxportApp.directive('showModal', function() {
 });
 
 /**
- * filterByDateService
+ * filterByDateService Service
  * @param $rootScope
  */
 paxportApp.service('filterByDateService', function ($rootScope) {
@@ -121,7 +114,7 @@ paxportApp.service('filterByDateService', function ($rootScope) {
 });
 
 /**
- * countPassengersService
+ * countPassengersService Service
  * @param paxDetails
  */
 paxportApp.service('countPassengersService', function () {
@@ -150,7 +143,7 @@ paxportApp.service('countPassengersService', function () {
 });
 
 /**
- * showOverlayItemService
+ * itemService Service.
  * @param 
  */
 paxportApp.service('itemService', function () {
