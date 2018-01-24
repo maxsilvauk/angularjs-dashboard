@@ -20,7 +20,7 @@ bookings.config(function(PARTIALS_DIR, $routeProvider) {
 
     $routeProvider.when('/booking/:bookingId', {
         templateUrl: PARTIALS_DIR+'bookings-summary.html'
-    });    
+    });
 });
 
 /**
@@ -51,35 +51,6 @@ bookings.directive('filterByDate', ['PARTIALS_DIR', function(PARTIALS_DIR, $root
         templateUrl: PARTIALS_DIR+'bookings-filter-by-date.html'
     };
 }]);
-
-/**
- * bookingService
- * @param paxDetails
- */
-paxportApp.service('bookingService', function () {
-    function getData(paxDetails) {
-        var passengers = { 
-            adult: 0, 
-            infant: 0
-        };
-
-        angular.forEach(paxDetails, function(value, key) {
-            switch(value.type) {
-                case 'ADULT':
-                    passengers.adult++;
-                break;
-                case 'INFANT':
-                    passengers.infant++;
-                break;
-            }
-        });
-        return passengers;
-    }
-
-    return {
-        getData: getData
-    };
-});
 
 /**
  * Bookings factory
@@ -161,10 +132,6 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
  */
  bookings.controller('bookingsSummaryCtrl', function($http, $q, $scope, bookingsData, $routeParams, $timeout, $location, countPassengersService, itemService) {
 
-    if ($routeParams.bookingId) {
-        getBookingSummary($routeParams.bookingId, true);
-    }
-
     function getBookingSummary(bookingId, routeParamExists) {
         $scope.loaded = false;
         $scope.routeParams = routeParamExists;
@@ -188,6 +155,10 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
             // log error message to an api or db?
             // Give the user feedback the error message
         });
+    }
+
+    if ($routeParams.bookingId) {
+        getBookingSummary($routeParams.bookingId, true);
     }
 
     $scope.$on('getBookingSummary', function(event, bookingId) {
