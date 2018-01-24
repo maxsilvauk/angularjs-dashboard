@@ -68,11 +68,28 @@ body {
 	}
 
 	.item-nav {
-		.fa {
+		a {
 			color:@pp-body-text;
 			cursor:pointer;
 			font-size: 26px;
 			margin-right:1px;
+			text-decoration:none;
+
+			&:hover {
+				color:@pp-body-text;
+			}
+
+			&:after {
+				font-family: FontAwesome;
+				content: "\f00d";
+			}
+
+			&.back {
+				&:after {
+					font-family: FontAwesome;
+					content: "\f0a8";
+				}
+			}
 		}
 	}
 

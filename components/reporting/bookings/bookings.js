@@ -153,14 +153,19 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
  * @param $q
  * @param $scope
  * @param bookingsData
- * @param $rootScope
+ * @param $routeParams
  * @param $timeout
+ * @param $location
+ * @param countPassengerSerivce
+ * @param itemSerivce 
  */
  bookings.controller('bookingsSummaryCtrl', function($http, $q, $scope, bookingsData, $routeParams, $timeout, $location, countPassengersService, itemService) {
     $scope.loaded = false;
+    $scope.routeParams = false;
 
     if ($routeParams.bookingId) {
-        getBookingSummary($routeParams.bookingId)
+        $scope.routeParams = true;
+        getBookingSummary($routeParams.bookingId);
     }
 
     function getBookingSummary(bookingId) {
