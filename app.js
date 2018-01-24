@@ -1,5 +1,5 @@
 // define module.
-var paxportApp = angular.module('paxportal', ['ngRoute','ngAnimate','ui.bootstrap','htmlToPdfSave','shared','dashboard','reporting','bookings','jira']);
+var paxportApp = angular.module('paxportal', ['ngRoute','ngLocationUpdate','ngAnimate','ui.bootstrap','htmlToPdfSave','shared','dashboard','reporting','bookings','jira']);
 
 // constants.
 paxportApp.constant('API_URL','http://localhost:3000');

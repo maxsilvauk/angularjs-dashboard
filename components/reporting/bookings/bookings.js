@@ -160,15 +160,16 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
  * @param itemSerivce 
  */
  bookings.controller('bookingsSummaryCtrl', function($http, $q, $scope, bookingsData, $routeParams, $timeout, $location, countPassengersService, itemService) {
-    $scope.loaded = false;
-    $scope.routeParams = false;
 
     if ($routeParams.bookingId) {
-        $scope.routeParams = true;
-        getBookingSummary($routeParams.bookingId);
+        getBookingSummary($routeParams.bookingId, true);
     }
 
-    function getBookingSummary(bookingId) {
+    function getBookingSummary(bookingId, routeParamExists) {
+        $scope.loaded = false;
+        $scope.routeParams = routeParamExists;
+        $location.update_path('/bookings/'+bookingId);
+
         bookingsData.getBookingSummary(bookingId).then(function(data) {
             // Add passengers object to data object.
             data[0].data.attributes.passengers = countPassengersService.getData(data[0].data.attributes.paxDetails);
@@ -190,7 +191,7 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
     }
 
     $scope.$on('getBookingSummary', function(event, bookingId) {
-        getBookingSummary(bookingId);
+        getBookingSummary(bookingId, false);
     });
 
     /**
@@ -200,6 +201,7 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
         if ($routeParams.bookingId) {
             $location.path('/bookings');
         } else {
+            $location.update_path('/bookings', true);
             itemService.closeItem('booking-summary');
         }
     };
