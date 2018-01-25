@@ -1,5 +1,5 @@
 // Define module.
-var paxportApp = angular.module('paxportal', ['ngRoute','ngLocationUpdate','ngAnimate','ui.bootstrap','htmlToPdfSave','shared','dashboard','reporting','bookings','jira']);
+var paxportApp = angular.module('paxportal', ['ngRoute','ngLocationUpdate','ngAnimate','ui.bootstrap','shared','dashboard','reporting','bookings','jira']);
 
 // Constants.
 paxportApp.constant('API_URL','http://localhost:3000');
@@ -8,9 +8,9 @@ paxportApp.constant('API_URL','http://localhost:3000');
  * Config
  * param $locationProvider
  */
-paxportApp.config(function($locationProvider) {
-    $locationProvider.html5Mode(true);
-});
+// paxportApp.config(function($locationProvider) {
+//     $locationProvider.html5Mode(true);
+// });
 
 // $rootScope Run.
 paxportApp.run(
