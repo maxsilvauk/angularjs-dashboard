@@ -9,7 +9,7 @@ bookings.constant('PARTIALS_DIR','components/reporting/bookings/partials/');
  * @param PARTIALS_DIR
  * @param $routeProvider
  */
-bookings.config(function(PARTIALS_DIR, $routeProvider) {
+bookings.config(function(PARTIALS_DIR, $routeProvider, $locationProvider) {
     $routeProvider.when('/bookings', {
         templateUrl: PARTIALS_DIR+'bookings-main.html'
     });
@@ -175,6 +175,135 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
             $location.update_path('/bookings', true);
             itemService.closeItem('booking-summary');
         }
+    };
+
+    /**
+     * $scope.downloadPdf().
+     */
+    $scope.downloadPDF = function() {
+
+        console.log($scope.bookingSummaryData);
+
+        var docDefinition = {
+            content: [
+                {text: 'Booking Summary', style: 'topHeader'},
+                {
+                    style: 'table',
+                    table: {
+                        widths: ['*', '*', '*', '*'],
+                        heights: [18],
+                        headerRows: 1,
+                        body: [
+                            [
+                                {text: $scope.bookingSummaryData.attributes.paxDetails[0].title+' '+$scope.bookingSummaryData.attributes.paxDetails[0].firstName+' '+$scope.bookingSummaryData.attributes.paxDetails[0].surname, 
+                                style: 'tableHeader', colSpan: 4}, {}, {}, {}],
+                            [
+                                {text: 'Session ID:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.references.sessionid}, 
+                                {text: 'Booking ID:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.id}
+                            ],
+                            [
+                                {text: 'Departing:', style: 'tableLabel'}, {text: 'A date should go here' }, 
+                                {text: 'Passengers:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.passengers.adult+' Adults '+$scope.bookingSummaryData.attributes.passengers.infant+' Infants'}
+                            ],
+                            [
+                                {text: 'Card Name:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.paymentDetails.cardHolder}, 
+                                {text: 'First 4 Digits:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.paymentDetails.cardNumber}
+                            ],
+                        ]
+                    },
+                    layout: {
+                        paddingLeft: function(i, node) { return 8; },
+                        paddingRight: function(i, node) { return 8; },
+                        paddingTop: function(i, node) { return 6; },
+                        paddingBottom: function(i, node) { return 6; }
+                    }
+                },
+                {text: 'Flight Details', style: 'header'},
+                {
+                    style: 'table',
+                    table: {
+                        widths: ['*', '*', '*', '*'],
+                        headerRows: 0,
+                        body: [
+                            [
+                                {text: 'Party:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.flightDetails.party}, 
+                                {text: 'Product:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.flightDetails.product}
+                            ],
+                            [
+                                {text: 'Created:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.flightDetails.systemData.created}, 
+                                {text: 'Carrier:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.flightDetails.marketingCarrier}
+                            ]
+                        ]
+                    },
+                    layout: {
+                        paddingLeft: function(i, node) { return 8; },
+                        paddingRight: function(i, node) { return 8; },
+                        paddingTop: function(i, node) { return 6; },
+                        paddingBottom: function(i, node) { return 6; }
+                    }
+                },
+                {
+                    style: 'table',
+                    table: {
+                        widths: ['*', '*', '*', '*'],
+                        heights: [18],
+                        headerRows: 0,
+                        body: [
+                            [
+                                {text: 'Leg 1', 
+                                style: 'tableHeader', colSpan: 4}, {}, {}, {}],
+                            [
+                                {text: 'Destination:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.references.sessionid}, 
+                                {text: 'Class:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.id}
+                            ],
+                            [
+                                {text: 'Origin:', style: 'tableLabel'}, {text: 'A date should go here' }, 
+                                {text: 'Start:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.passengers.adult+' Adults '+$scope.bookingSummaryData.attributes.passengers.infant+' Infants'}
+                            ],
+                            [
+                                {text: 'Dest:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.paymentDetails.cardHolder}, 
+                                {text: 'End:', style: 'tableLabel'}, {text: $scope.bookingSummaryData.attributes.paymentDetails.cardNumber}
+                            ],
+                        ]
+                    },
+                    layout: {
+                        paddingLeft: function(i, node) { return 8; },
+                        paddingRight: function(i, node) { return 8; },
+                        paddingTop: function(i, node) { return 6; },
+                        paddingBottom: function(i, node) { return 6; }
+                    }
+                }
+            ],
+            styles: {
+                topHeader: {
+                    fontSize: 20,
+                    bold: true,
+                    margin: [0, 0, 0, 20],
+                    alignment: 'left'
+                },
+                header: {
+                    fontSize: 16,
+                    bold: true,
+                    margin: [0, 10, 0, 15],
+                    alignment: 'left'
+                },
+                table: {
+                    fontSize: 8,
+                    alignment: 'left',
+                    color: 'black',
+                    margin: [0, 5, 0, 15]
+                },
+                tableHeader: {
+                    fontSize: 14,
+                    bold: true,
+                },
+                tableLabel: {
+                    bold: true,
+                }
+            }
+        };
+
+        pdfMake.createPdf(docDefinition).download();
     };
 });
 
