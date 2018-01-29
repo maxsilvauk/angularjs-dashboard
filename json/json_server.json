@@ -236,6 +236,36 @@
                       "stops": 0
                     }
                 ]
+              },
+              {
+                "duration": 0,
+                "segments": [
+                    {
+                      "designation": "MPO322",
+                      "carrier": "ENX",
+                      "class": "ECONOMY",
+                      "origin": "HAL",
+                      "start": "2017-11-03 11:00:00",
+                      "destination": "HTH",
+                      "end": "2017-11-03 12:00:00",
+                      "stops": 0
+                    }
+                ]
+              },
+              {
+                "duration": 0,
+                "segments": [
+                    {
+                      "designation": "MXO322",
+                      "carrier": "ETX",
+                      "class": "ECONOMY",
+                      "origin": "AOE",
+                      "start": "2017-11-03 12:00:00",
+                      "destination": "HTH",
+                      "end": "2017-11-03 18:00:00",
+                      "stops": 0
+                    }
+                ]
               }
           ]
         },
@@ -366,6 +396,21 @@
                       "start": "2017-11-03 14:00:00",
                       "destination": "STN",
                       "end": "2017-11-03 16:00:00",
+                      "stops": 0
+                    }
+                ]
+              },
+              {
+                "duration": 0,
+                "segments": [
+                    {
+                      "designation": "MPO322",
+                      "carrier": "ENX",
+                      "class": "ECONOMY",
+                      "origin": "HAL",
+                      "start": "2017-11-03 11:00:00",
+                      "destination": "HTH",
+                      "end": "2017-11-03 12:00:00",
                       "stops": 0
                     }
                 ]
