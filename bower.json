@@ -21,7 +21,6 @@
     "moment": "*",
     "less.js": "*",
     "font-awesome": "*",
-    "angular-location-update": "*",
-    "pdfmake": "*"
+    "angular-location-update": "*"
   }
 }
