@@ -21,7 +21,7 @@
     "moment": "*",
     "less.js": "*",
     "font-awesome": "*",
-    "AngularJS-OAuth2": "angularjs-oauth2#^1.2.3",
-    "angular-location-update": "^0.0.2"
+    "angular-location-update": "*",
+    "pdfmake": "*"
   }
 }
