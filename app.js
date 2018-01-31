@@ -104,6 +104,10 @@ paxportApp.service('filterByDateService', function ($rootScope) {
         filterByDatesObj.endDate = $rootScope.endDate;
     });
 
+    /**
+     * getData()
+     * @param date
+     */
     function getData(date) {
         return filterByDatesObj;
     }
@@ -118,6 +122,10 @@ paxportApp.service('filterByDateService', function ($rootScope) {
  * @param paxDetails
  */
 paxportApp.service('countPassengersService', function () {
+    /**
+     * getData()
+     * @param paxDetails
+     */
     function getData(paxDetails) {
         var passengers = { 
             adult: 0, 
@@ -144,15 +152,23 @@ paxportApp.service('countPassengersService', function () {
 
 /**
  * itemService Service.
- * @param 
  */
 paxportApp.service('itemService', function () {
+    /**
+     * showItem()
+     * @param itemName
+     * @param itemId
+     */
     function showItem(itemName, itemId) {
         $('body').css('overflow-y','hidden');
         $('#'+itemName).addClass('active');
         $('#'+itemName).css('overflow','scroll').css('overflow-x','hidden');
     }
 
+    /**
+     * closeItem()
+     * @param itemName
+     */
     function closeItem(itemName) {
         $('body').css('overflow-y','visible');
         $('#'+itemName).removeClass('active');
@@ -161,6 +177,64 @@ paxportApp.service('itemService', function () {
     return {
         showItem: showItem,
         closeItem: closeItem
+    };
+});
+
+
+/**
+ * fontAwesome Service.
+ */
+paxportApp.service('iconService', function() {
+    /**
+     * stripQuotes()
+     * @param string
+     */
+    function stripQuotes(string) {
+        var len = string.length;
+        return string.slice(1, len - 1);
+    }
+
+    /**
+     * findCSSRuleContent()
+     * @param mySheet
+     * @param selector
+     */
+    function findCSSRuleContent(mySheet, selector) {
+        var ruleContent = '';
+        var rules = mySheet.cssRules ? mySheet.cssRules : mySheet.rules;
+
+        for (var i = 0; i < rules.length; i++) {
+            var text = rules[i].selectorText;
+            if (text && text.indexOf(selector) >= 0) {
+                ruleContent = rules[i].style.content;
+                break;
+            }
+        }
+        
+        return ruleContent;
+    }
+
+    /**
+     * findSymbolForClass()
+     * @param selector
+     */
+    function findSymbolForClass(selector) {
+        var result = '';
+        var sheets = document.styleSheets;
+
+        for (var sheetNr = 0; sheetNr < sheets.length; sheetNr++) {
+            var content = findCSSRuleContent(sheets[sheetNr], selector);
+
+            if (content) {
+                result = stripQuotes(content);
+                break;
+            }
+        }
+        return result;
+    };
+
+    return {
+        findSymbolForClass: findSymbolForClass
     };
 });
 
