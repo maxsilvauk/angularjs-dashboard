@@ -264,7 +264,7 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                 return [
                     {
                         style: 'table',
-                        margin: [70,20],
+                        margin: [62,35,62,35],
                         table: {
                             widths: ['*', '*'],
                             headerRows: 0,
@@ -285,12 +285,12 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
             },
             footer: function(currentPage, pageCount) { 
                 return [
-                    {text: currentPage.toString() + ' of ' + pageCount, alignment: 'center'}
+                    {text: currentPage.toString() + ' of ' + pageCount, alignment: 'center', style: 'footer'}
                 ]
             },
             content: [
                 {
-                    style: 'table',
+                    style: 'topTable',
                     table: {
                         widths: ['*','*', '*', '*'],
                         heights: [18],
@@ -326,7 +326,10 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                         paddingLeft: function(i, node) { return 8; },
                         paddingRight: function(i, node) { return 8; },
                         paddingTop: function(i, node) { return 6; },
-                        paddingBottom: function(i, node) { return 6; }
+                        paddingBottom: function(i, node) { return 6; },
+                        fillColor: function (i, node) {
+                            return (i % 2 === 0) ?  '#F5F5F5' : null;
+                        }
                     }
                 },
                 {
@@ -341,7 +344,8 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                             ]
                         ]
                     },
-                    layout: 'noBorders'
+                    layout: 'noBorders',
+                    pageBreak: 'before'
                 },
                 {
                     style: 'table',
@@ -363,7 +367,10 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                         paddingLeft: function(i, node) { return 8; },
                         paddingRight: function(i, node) { return 8; },
                         paddingTop: function(i, node) { return 6; },
-                        paddingBottom: function(i, node) { return 6; }
+                        paddingBottom: function(i, node) { return 6; },
+                        fillColor: function (i, node) {
+                            return (i % 2 === 0) ?  '#F5F5F5' : null;
+                        }
                     }
                 },
                 {
@@ -378,7 +385,10 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                         paddingLeft: function(i, node) { return 8; },
                         paddingRight: function(i, node) { return 8; },
                         paddingTop: function(i, node) { return 6; },
-                        paddingBottom: function(i, node) { return 6; }
+                        paddingBottom: function(i, node) { return 6; },
+                        fillColor: function (i, node) {
+                            return (i % 2 === 0) ?  '#F5F5F5' : null;
+                        }
                     }
                 },
                 {
@@ -393,7 +403,8 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                             ]
                         ]
                     },
-                    layout: 'noBorders'
+                    layout: 'noBorders',
+                    pageBreak: 'before'
                 },
                 {
                     style: 'table',
@@ -407,7 +418,10 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                         paddingLeft: function(i, node) { return 8; },
                         paddingRight: function(i, node) { return 8; },
                         paddingTop: function(i, node) { return 6; },
-                        paddingBottom: function(i, node) { return 6; }
+                        paddingBottom: function(i, node) { return 6; },
+                        fillColor: function (i, node) {
+                            return (i % 2 === 0) ?  '#F5F5F5' : null;
+                        }
                     }
                 },
                 {
@@ -422,26 +436,30 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                             ]
                         ]
                     },
-                    layout: 'noBorders'
+                    layout: 'noBorders',
+                    pageBreak: 'before'
                 },
                 {
                     style: 'table',
                     table: {
                         widths: ['*', '*', '*', '*', '*'],
                         heights: [18],
-                        headerRows: 1,
+                        headerRows: 0,
                         body: costDetails
                     },
                     layout: {
                         paddingLeft: function(i, node) { return 8; },
                         paddingRight: function(i, node) { return 8; },
                         paddingTop: function(i, node) { return 6; },
-                        paddingBottom: function(i, node) { return 6; }
+                        paddingBottom: function(i, node) { return 6; },
+                        fillColor: function (i, node) {
+                            return (i % 2 === 0) ?  '#F5F5F5' : null;
+                        }
                     }
                 },
             ],
             pageSize: 'A4',
-            pageMargins: 72,
+            pageMargins: [62,80,62,80],
             styles: {
                 fontAwesome: {
                     font: 'FontAwesome',
@@ -459,6 +477,17 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                     bold: true,
                     margin: [0, 10, 0, 15],
                     alignment: 'left'
+                },
+                footer: {
+                    fontSize: 8,
+                    margin: [0, 25, 0, 17],
+                    alignment: 'center'
+                },
+                topTable: {
+                    fontSize: 8,
+                    alignment: 'left',
+                    color: 'black',
+                    margin: [0, 25, 0, 15]
                 },
                 table: {
                     fontSize: 8,

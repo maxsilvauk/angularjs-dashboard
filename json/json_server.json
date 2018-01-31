@@ -303,7 +303,7 @@
               "value": 0.0
             },
             "quantity": 1,
-            "description": "Payment Card Charge",
+            "description": "Payment Card",
             "supplier":"AER"
           }
         ]
