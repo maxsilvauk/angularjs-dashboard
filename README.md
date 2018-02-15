@@ -12,6 +12,7 @@
     <img src="https://img.shields.io/badge/grunt-latest-orange.svg" />
     <img src="https://img.shields.io/github/forks/maxsilvauk/angularjs-dashboard.svg?style=social&label=Fork" />
 </p>
+
 ## Table of Contents
 
 - [Introduction](#introduction)
