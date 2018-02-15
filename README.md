@@ -10,7 +10,7 @@
     <img src="https://img.shields.io/badge/npm-v4.6.1^-blue.svg" />
     <img src="https://img.shields.io/badge/less-v3.0.1^-green.svg" />
     <img src="https://img.shields.io/badge/grunt-v1.0.1^-orange.svg" />
-    <img src="https://img.shields.io/badge/json-server-v0.12.1^-green.svg" />
+    <img src="https://img.shields.io/badge/jsonserver-v0.12.1^-green.svg" />
     <img src="https://img.shields.io/github/forks/maxsilvauk/angularjs-dashboard.svg?style=social&label=Fork" />
 </p>
 
