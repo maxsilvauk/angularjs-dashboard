@@ -9,8 +9,10 @@
   ],
   "dependencies": {
     "jquery": "*",
-    "lodash": "*",
+    "less.js": "*",
+    "moment": "*",
     "bootstrap": "*",
+    "font-awesome": "*",
     "angular": "*",
     "angular-route": "*",
     "angular-animate": "*",
@@ -18,9 +20,6 @@
     "angular-cookies": "*",
     "angular-mocks": "*",
     "angular-bootstrap": "*",
-    "moment": "*",
-    "less.js": "*",
-    "font-awesome": "*",
     "angular-location-update": "*"
   }
 }
