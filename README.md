@@ -36,13 +36,9 @@ An AngularJS v1.0 admin dashboard. The architecture follows a modular component 
 - Bootstrap v4.0^
 - JQuery v3.2.1^
 - Less v3.0.1^
-- Grunt v1.0.1
+- Grunt v1.0.1^
 - Json-server v0.12.1^
 - PDFMake 0.1.35^
-
-## Authors
-
-* **Max Silva** - (https://github.com/maxsilvauk)
 
 ## Full-Install 
 
