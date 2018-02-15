@@ -16,8 +16,9 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Software](#software)
-- [Install](#install)
+- [Built With](#built-with)
+- [Full Install](#full-install)
+- [Quick Install](#quick-install)
 
 ## Introduction
 
@@ -25,16 +26,64 @@ An AngularJS v1.0 admin dashboard. The architecture follows a modular component 
 
 ## Software
 
-* AngularJS v1.0
-* Bootstrap 4
-* JQuery latest
-* Grunt latest
-* Less latest
-* json-server latest
+AnguarJS v1.5
+Bootstrap v4.0^
+JQuery v3.2.1^
+Grunt v1.0.1
+Less v3.0.1^
+Json-server v0.12.1^
 
-## Install
+## Full-Install 
 
-* Install node & bower
-* npm start
-* Open new terminal cd to json-server dir
-* json-server --watch json_server.json
+* Install <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">x-code</a>
+* Install homebrew
+```
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+* Install node
+```
+brew install node
+```
+* Update node and npm
+```
+brew update node
+```
+* Install bower
+```
+npm install -g bower
+```
+* Run NPM
+```
+npm start
+```
+* Open a new terminal (CMD+N) and cd to json_server.json file location.
+```
+cd /path_to_json_server_file/json_server.json
+```
+* Run json_server.
+```
+json-server --watch json_server.json
+```
+* Navigate to application in browser.
+```
+http://localhost:8000
+```
+
+## Quick-Install 
+
+* Run NPM
+```
+npm start
+```
+* Open a new terminal (CMD+N) and cd to json_server.json file location.
+```
+cd /path_to_json_server_file/json_server.json
+```
+* Run json_server.
+```
+json-server --watch json_server.json
+```
+* Navigate to application in browser.
+```
+http://localhost:8000
+```
