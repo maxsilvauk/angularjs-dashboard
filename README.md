@@ -8,6 +8,7 @@
 <p align="center">
     <img src="https://img.shields.io/badge/paxportal-v1.0-red.svg" />
     <img src="https://img.shields.io/badge/angularJS-v1.5-red.svg" />
+    <img src="https://img.shields.io/badge/node-v4.7.2^-blue.svg" />
     <img src="https://img.shields.io/badge/npm-v4.6.1^-blue.svg" />
     <img src="https://img.shields.io/badge/less-v3.0.1^-green.svg" />
     <img src="https://img.shields.io/badge/grunt-v1.0.1^-orange.svg" />
@@ -31,8 +32,8 @@ An AngularJS v1.0 admin dashboard. The architecture follows a modular component 
 - AnguarJS v1.5
 - Bootstrap v4.0^
 - JQuery v3.2.1^
-- Grunt v1.0.1
 - Less v3.0.1^
+- Grunt v1.0.1
 - Json-server v0.12.1^
 - PDFMake 0.1.35^
 
