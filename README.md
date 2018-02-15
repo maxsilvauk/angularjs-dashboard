@@ -1,4 +1,5 @@
-<h1 align="center"> Paxportal </h1> <br>
+<h1 align="center">Paxportal</h1>
+<br>
 <p align="center">
   <a href="https://gitpoint.co/">
     <img alt="Paxport" title="Paxport" src="http://resources.mynewsdesk.com/image/upload/t_open_graph_image/slgrkmbsgubxld6iwcoija.jpg" width="350">
@@ -33,6 +34,7 @@ An AngularJS v1.0 admin dashboard. The architecture follows a modular component 
 - Grunt v1.0.1
 - Less v3.0.1^
 - Json-server v0.12.1^
+- PDFMake 0.1.35^
 
 ## Full-Install 
 
