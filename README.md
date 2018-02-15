@@ -1,7 +1,7 @@
 <h1 align="center"> Paxportal </h1> <br>
 <p align="center">
   <a href="https://gitpoint.co/">
-    <img alt="Paxport" title="Paxport" src="http://resources.mynewsdesk.com/image/upload/t_open_graph_image/slgrkmbsgubxld6iwcoija.jpg" width="450">
+    <img alt="Paxport" title="Paxport" src="http://resources.mynewsdesk.com/image/upload/t_open_graph_image/slgrkmbsgubxld6iwcoija.jpg" width="350">
   </a>
 </p>
 <p align="center">
