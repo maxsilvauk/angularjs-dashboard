@@ -36,6 +36,10 @@ An AngularJS v1.0 admin dashboard. The architecture follows a modular component 
 - Json-server v0.12.1^
 - PDFMake 0.1.35^
 
+## Authors
+
+* **Max Silva** - (https://github.com/maxsilvauk)
+
 ## Full-Install 
 
 * Install <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">x-code</a>
