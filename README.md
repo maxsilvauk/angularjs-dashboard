@@ -27,7 +27,7 @@
 
 An AngularJS v1.0 admin dashboard. The architecture follows a modular component ethos. Where each segement on the page is called by its own controller, specific data is called by unique factory and the view html is re-usable. The API data is populated via json-server.js whilst the back-end end-points are still in development.
 
-## Software
+## Built-With
 
 - Node v4.7.2^
 - NPM v4.6.1^
