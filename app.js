@@ -231,7 +231,7 @@ paxportApp.service('iconService', function() {
             }
         }
         return result;
-    };
+    }
 
     return {
         findSymbolForClass: findSymbolForClass

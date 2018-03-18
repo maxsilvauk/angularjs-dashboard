@@ -281,12 +281,12 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                         },
                         layout: 'noBorders'
                     }
-                ]
+                ];
             },
             footer: function(currentPage, pageCount) { 
                 return [
                     {text: currentPage.toString() + ' of ' + pageCount, alignment: 'center', style: 'footer'}
-                ]
+                ];
             },
             content: [
                 {
@@ -511,6 +511,8 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
             }
         };
 
+        var pdfMake = pdfMake;
+        
         pdfMake.createPdf(docDefinition).download();
     };
 });
