@@ -57,7 +57,7 @@ brew update node
 ```
 * Install bower
 ```
-npm install -g bower
+npm install bower
 ```
 * Run NPM
 ```
@@ -70,6 +70,10 @@ cd /path_to_json_server_file/json_server.json
 * Run json_server.
 ```
 json-server --watch json_server.json
+```
+* Grunt
+```
+grunt --force (Using force for time being because of image minifier and karma needs to be fixed.)
 ```
 * Navigate to application in browser.
 ```
