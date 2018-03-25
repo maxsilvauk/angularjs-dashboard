@@ -510,8 +510,6 @@ bookings.controller('bookingsKpiCtrl', function($scope, $rootScope, $timeout, bo
                 }
             }
         };
-
-        var pdfMake = pdfMake;
         
         pdfMake.createPdf(docDefinition).download();
     };
