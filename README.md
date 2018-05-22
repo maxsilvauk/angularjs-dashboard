@@ -1,10 +1,5 @@
-<h1 align="center">Paxportal</h1>
+<h1 align="center">Angular Prototype Dashboard</h1>
 <br>
-<p align="center">
-  <a href="https://gitpoint.co/">
-    <img alt="Paxport" title="Paxport" src="http://resources.mynewsdesk.com/image/upload/t_open_graph_image/slgrkmbsgubxld6iwcoija.jpg" width="350">
-  </a>
-</p>
 <p align="center">
     <img src="https://img.shields.io/badge/node-v4.7.2^-blue.svg" />
     <img src="https://img.shields.io/badge/npm-v4.6.1^-blue.svg" />
